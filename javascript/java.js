@@ -113,8 +113,8 @@ function updateRaceType()
 
     if(raceType.value == 1) {
         innerHTML("raceTypeValue", "Sprint Race");
-        raceTime.value = 6;
         raceTime.max = 8;
+        raceTime.value = 6;
         raceTimeArray = raceTimeArray1;
         display("standDiv");
         //updateStand();
@@ -122,29 +122,29 @@ function updateRaceType()
 
     if(raceType.value == 2) {
         innerHTML("raceTypeValue", "Endurance 3H");
-        raceTime.value = 2;
         raceTime.max = 5;
+        raceTime.value = 2;
         raceTimeArray = raceTimeArray2;
     }
 
     if(raceType.value == 3) {
         innerHTML("raceTypeValue", "Endurance 6H");
-        raceTime.value = 2;
         raceTime.max = 5;
+        raceTime.value = 2;
         raceTimeArray = raceTimeArray3;
     }
 
     if(raceType.value == 4) {
         innerHTML("raceTypeValue", "Endurance 24H");
-        raceTime.value = 1;
         raceTime.max = 8;
+        raceTime.value = 1;
         raceTimeArray = raceTimeArray4;
     }
 
 /*    if(raceType.value == 5) {
         innerHTML("raceTypeValue", "Personnalisée");
-        raceTime.value = 1;
         raceTime.max = 21;
+        raceTime.value = 1;
         raceTimeArray = raceTimeArray5;
     }*/
 
