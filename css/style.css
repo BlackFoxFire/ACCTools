@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Arial, Tahoma, Helvetica, sans-serif;
+}
+
+main {
+    background-image: url("/acctools/pictures/bg.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
