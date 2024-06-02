@@ -38,7 +38,7 @@
               </div>
               <div class="row mt-1">
                 <div class="col-12">
-                    <input type="range" name="raceType" id="raceType" min="1" max="4" value="1" title="Type de course" class="w-100">
+                    <input type="range" name="raceType" id="raceType" min="1" max="5" value="1" title="Type de course" class="w-100">
                 </div>
               </div>
               <!-- Durée de la course -->
@@ -50,7 +50,7 @@
               </div>
               <div class="row mt-1">
                 <div class="col-12">
-                    <input type="range" name="raceTime" id="raceTime" min="1" title="Durées de la course" class="w-100">
+                    <input type="range" name="raceTime" id="raceTime" min="0" title="Durées de la course" class="w-100">
                 </div>
               </div>
               <!-- Temps moyen au tour -->
@@ -77,17 +77,37 @@
                     <input type="range" name="consumption" id="consumption" min="1" max="15" step="0.1" value="3" title="Consommation de carburant au tour" class="w-100">
                 </div>
               </div>
+              <!-- Types d'arrêt au stand -->
+              <div id="typePitStopDiv">
+                <div class="row mt-2">
+                  <div class="col-12 d-flex justify-content-between">
+                      <span>Type d'arrêt aux stands: </span>
+                      <span id="typePitStopValue"></span>
+                  </div>
+                </div>
+                <div class="row mt-1">
+                  <div class="col-12">
+                      <input type="range" name="typePitStop" id="typePitStop" min="1" value="1" title="Type d'arrêt aux stands" class="w-100">
+                  </div>
+                </div>
+              </div>
               <!-- Relay de course -->
-              <div class="row mt-2">
+              <div class="row mt-2" id ="relayDiv">
                 <div class="col-12 d-flex justify-content-between">
-                    <span id="relayLabel">Arrêt au stand: </span>
+                    <span id="relayLabel">Arrêt aux stands: </span>
                     <span id="relayValue"></span>
                 </div>
               </div>
               <!-- Nombre d'arret au stand -->
               <div class="row mt-1" id="standDiv">
                 <div class="col-12">
-                    <input type="range" name="stand" id="stand" min="0" max="5" value="0" title="Nombre d'arrêts au stand avec ravitaillement" class="w-100">
+                    <input type="range" name="stand" id="stand" min="0" value="0" title="Nombre d'arrêts au stand avec ravitaillement" class="w-100">
+                </div>
+              </div>
+              <!-- Temps de relay d'un pilote -->
+              <div class="row mt-1" id="pilotRelayTimeDiv">
+                <div class="col-12">
+                    <input type="range" name="pilotRelayTime" id="pilotRelayTime" min="0" value="0" title="Temps de relay du pilote" class="w-100">
                 </div>
               </div>
               <!-- Y-a-t'il un tour de formation ? -->

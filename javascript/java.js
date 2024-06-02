@@ -5,7 +5,9 @@ const raceType = document.getElementById('raceType');
 const raceTime = document.getElementById('raceTime');
 const lapTime = document.getElementById('lapTime');
 const consumption = document.getElementById('consumption');
+const typePitStop = document.getElementById('typePitStop');
 const stand = document.getElementById('stand');
+const pilotRelayTime = document.getElementById('pilotRelayTime');
 
 /**
  * Déclaration des évenements
@@ -27,8 +29,16 @@ consumption.addEventListener("input", function() {
     updateConsumption();
 });
 
+typePitStop.addEventListener("input", function() {
+    updateRelay();
+});
+
 stand.addEventListener("input", function() {
     updateStand();
+});
+
+pilotRelayTime.addEventListener("input", function() {
+    updateRelay();
 });
 
 document.getElementById('myForm').addEventListener("input", function() {
@@ -42,7 +52,7 @@ const raceTimeArray1 = [5, 10, 15, 20, 25, 30, 45, 60];
 const raceTimeArray2 = [30, 60 ,90, 120, 180];
 const raceTimeArray3 = [60, 120, 180, 240, 360];
 const raceTimeArray4 = [180, 360, 480, 540, 600, 720, 1080, 1440];
-//const raceTimeArray5 = [10, 20, 30, 60 ,90, 120, 180, 240, 300, 360, 420, 480, 540, 600, 720, 840, 960, 1080, 1200, 1320, 1440];
+const raceTimeArray5 = [10, 20, 30, 60 ,90, 120, 180, 240, 300, 360, 420, 480, 540, 600, 720, 840, 960, 1080, 1200, 1320, 1440];
 
 /**
  * Tableau des temps de pilotage en minutes
@@ -109,44 +119,52 @@ function innerHTML(id, text)
  */
 function updateRaceType()
 {
+    hide("typePitStopDiv");
+    display("relayDiv");
     hide("standDiv");
+    hide("pilotRelayTimeDiv");
 
     if(raceType.value == 1) {
         innerHTML("raceTypeValue", "Sprint Race");
-        raceTime.max = 8;
-        raceTime.value = 6;
+        raceTime.max = 7;
+        raceTime.value = 5;
         raceTimeArray = raceTimeArray1;
         display("standDiv");
-        //updateStand();
+        stand.max = 5;
+        updateStand();
     }
 
     if(raceType.value == 2) {
         innerHTML("raceTypeValue", "Endurance 3H");
-        raceTime.max = 5;
-        raceTime.value = 2;
+        raceTime.max = 4;
+        raceTime.value = 1;
         raceTimeArray = raceTimeArray2;
     }
 
     if(raceType.value == 3) {
         innerHTML("raceTypeValue", "Endurance 6H");
-        raceTime.max = 5;
-        raceTime.value = 2;
+        raceTime.max = 4;
+        raceTime.value = 1;
         raceTimeArray = raceTimeArray3;
     }
 
     if(raceType.value == 4) {
         innerHTML("raceTypeValue", "Endurance 24H");
-        raceTime.max = 8;
-        raceTime.value = 1;
+        raceTime.max = 7;
+        raceTime.value = 0;
         raceTimeArray = raceTimeArray4;
     }
 
-/*    if(raceType.value == 5) {
+    if(raceType.value == 5) {
         innerHTML("raceTypeValue", "Personnalisée");
-        raceTime.max = 21;
-        raceTime.value = 1;
+        raceTime.max = 20;
+        raceTime.value = 0;
         raceTimeArray = raceTimeArray5;
-    }*/
+        display("typePitStopDiv");
+        hide("relayDiv");
+        typePitStop.max = 3;
+        typePitStop.value = 1;
+    }
 
     updateRaceTime();
 }
@@ -157,10 +175,10 @@ function updateRaceType()
  */
 function updateRaceTime()
 {
-    if((raceTimeArray[raceTime.value - 1] - 1) < 90 ) {
-        innerHTML("raceTimeValue", raceTimeArray[raceTime.value - 1] + " Minutes");
+    if((raceTimeArray[raceTime.value] - 1) < 90 ) {
+        innerHTML("raceTimeValue", raceTimeArray[raceTime.value] + " Minutes");
     } else {
-        innerHTML("raceTimeValue", (raceTimeArray[raceTime.value - 1] / 60) + " Heures");
+        innerHTML("raceTimeValue", (raceTimeArray[raceTime.value] / 60) + " Heures");
     }
 
     updateRelay();
@@ -196,17 +214,16 @@ function updateStand()
 }
 
 /**
- * 
+ * Calcule les temps de pilotage
  * 
  */
 function updateRelay()
 {
-    const relayLabel = document.getElementById('relayLabel');
-    const relayValue = document.getElementById('relayValue');
     let pilotTime = 0;
+    let flag = false;
 
     if(raceType.value == 1) {
-        relayLabel.innerHTML = "Arrêt au stand: ";
+        innerHTML("relayLabel", "Arrêt au stand: ");
 
         if(Number(stand.value) > 0) {
             pitStop = Number(stand.value) + 1;
@@ -218,31 +235,96 @@ function updateRelay()
         }
     }
     else if(raceType.value == 2) {
-        relayLabel.innerHTML = "Temps relais pilote: ";
-        pilotTime = (3600 / (10800 / (raceTimeArray[raceTime.value - 1] * 60))) + 300;
+        flag = true;
+        innerHTML("relayLabel", "Limite de relais du pilote: ");
+        pilotTime = (3600 / (10800 / (raceTimeArray[raceTime.value] * 60))) + 300;
         pitStop = 3;
     }
-    else {
-        relayLabel.innerHTML = "Temps relais pilote: ";
+    else if(raceType.value == 3 || raceType.value == 4) {
+        flag = true;
+        innerHTML("relayLabel", "Limite de relais du pilote: ");
 
         if(raceType.value == 3 ) {
-            pilotTime = (3600 / (21600 / (raceTimeArray[raceTime.value - 1] * 60))) + 300;
+            pilotTime = (3600 / (21600 / (raceTimeArray[raceTime.value] * 60))) + 300;
         }
         else {
-            pilotTime = (3600 / (86400 / (raceTimeArray[raceTime.value - 1] * 60))) + 300;
+            pilotTime = (3600 / (86400 / (raceTimeArray[raceTime.value] * 60))) + 300;
         }
 
-        pitStop = Math.ceil((raceTimeArray[raceTime.value - 1] * 60) / pilotTime);
+        pitStop = Math.ceil((raceTimeArray[raceTime.value] * 60) / pilotTime);
+    }
+    else {
+        hide("relayDiv");
+        hide("pilotRelayTimeDiv");
+        
+        if(raceTimeArray[raceTime.value] < 120) {
+            display("typePitStopDiv");
+            if(raceTimeArray[raceTime.value] < 30) {
+                typePitStop.max = 2;
+            }
+            else {
+                typePitStop.max = 3;
+            }
+
+            if(typePitStop.value == 1) {
+                innerHTML("typePitStopValue", "Aucun arrêt aux stands");
+                pitStop = 0;
+                innerHTML("pitStopValue", 0);
+            }
+            else if(typePitStop.value == 2) {
+                innerHTML("typePitStopValue", "Fenêtre d'arrêt aux stands");
+                pitStop = 2;
+                innerHTML("pitStopValue", 1);
+            }
+            else {
+                innerHTML("typePitStopValue", "Limite de relais du pilote: ");
+                display("relayDiv");
+                innerHTML("relayLabel", "Limite de relais du pilote: ");
+                flag = true;
+
+                if(raceTimeArray[raceTime.value] == 30) {
+                    pilotRelayTime.max = 0;
+                }
+                else if(raceTimeArray[raceTime.value] == 60) {
+                    display("pilotRelayTimeDiv");
+                    pilotRelayTime.max = 1;
+                }
+                else if(raceTimeArray[raceTime.value] == 90) {
+                    display("pilotRelayTimeDiv");
+                    pilotRelayTime.max = 2;
+                }
+
+                pilotTime = relayArray[pilotRelayTime.value] * 60;
+                pitStop = Math.ceil((raceTimeArray[raceTime.value] * 60) / pilotTime);
+            }
+        }
+        else {
+            flag = true;
+            hide("typePitStopDiv");
+            display("relayDiv");
+            innerHTML("relayLabel", "Limite de relais du pilote: ");
+            display("pilotRelayTimeDiv");
+
+            if(raceTimeArray[raceTime.value] < 180) {
+                pilotRelayTime.max = 2;
+            }
+            else {
+                pilotRelayTime.max = 3;
+            }
+
+            pilotTime = relayArray[pilotRelayTime.value] * 60;
+            pitStop = Math.ceil((raceTimeArray[raceTime.value] * 60) / pilotTime);
+        }
     }
 
-    if(raceType.value > 1) {
+    if(flag) {
         let reste = pilotTime % 60;
 
         if(reste != 0) {
-            relayValue.innerHTML = Math.floor(pilotTime / 60) + " Min " + reste + "s";
+            innerHTML("relayValue", Math.floor(pilotTime / 60) + " Min " + reste + "s");
         }
         else {
-            relayValue.innerHTML = Math.floor(pilotTime / 60) + " Minutes";
+            innerHTML("relayValue", Math.floor(pilotTime / 60) + " Minutes");
         }
 
         innerHTML("pitStopValue", pitStop - 1);
@@ -255,7 +337,7 @@ function updateRelay()
  */
 function update()
 {
-    let conso = Math.ceil((raceTimeArray[raceTime.value - 1] / (lapTime.value / 60)) * consumption.value);
+    let conso = Math.ceil((raceTimeArray[raceTime.value] / (lapTime.value / 60)) * consumption.value);
 
     if(formationLap.checked) {
         conso = Math.ceil(conso + Number(consumption.value));
