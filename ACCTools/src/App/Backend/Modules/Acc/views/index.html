@@ -1,0 +1,128 @@
+{% extends "layout.html" %} 
+
+{% block main %}
+<main>    
+    <section class="p-2">
+        <div class="container">
+            <div class="bg-light bg-opacity-25 p-2">
+                <div class="row">
+                    <div class="col-12 col-md-8 m-auto">
+                        <h1 class="text-center">
+                            <img src="{{ url_logo_acc }}" alt="Logo Assetto Corsa Competizione" class="img-fluid w-50">
+                        </h1>
+                    </div>
+                </div>
+                <div class="bg-dark bg-opacity-50 text-light rounded-3 p-3">
+                    <div class="row gy-2 gy-md-0 mt-3">
+                        <div class="col-12 col-md-6">
+                            <!-- Ajouter une voiture -->
+                            <form action="addCar" method="post" class="input-group p-2">
+                                <input type="text" name="car" id="car" placeholder="Ajoutez une voiture" class="form-control" required>
+                                <button name="addCar" class="btn btn-primary btn-outline-light" type="submit">Valider</button>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <!-- Ajouter un circuit -->
+                            <form action="addCircuit" method="post" class="input-group p-2">
+                                <input type="text" name="circuit" id="circuit" placeholder="Ajoutez un circuit" class="form-control" required>
+                                <button name="addCircuit" class="btn btn-primary btn-outline-light" type="submit">Valider</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Ajouter une consommation -->
+                    <form action="addConsumption" method="post" class="p-2">
+                        <div class="row gy-3 gy-md-0">
+                            <div class="col-12 col-md-4">
+                                <select name="car2" id="Car2" class="form-select">
+                                    {% for car in cars %}
+                                    <option value="{{ car.id }}">{{ car }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <select name="circuit2" id="circuit2" class="form-select">
+                                    {% for circuit in circuits %}
+                                    <option value="{{ circuit.id }}">{{ circuit }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="input-group">
+                                    <input type="number" name="consumption" id="consumption"placeholder="Ajouter une consommation"  min="1" max="15" step="0.1" class="form-control" required>
+                                    <button name="addConsumption" class="btn btn-primary btn-outline-light" type="submit">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {% if user.hasMessage %}
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="bg-success text-light text-center p-1">
+                                {{ user.getMessage }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row mt-5">
+                        <div class="col">
+                            <div class="p-2">
+                                <form method="post">
+                                    <p>Rechercher des consommations</p>
+                                    <div class="row gy-2 gy-md-0">
+                                        <div class="col">
+                                            <select name="carConsumption" id="carConsumption" class="form-select">
+                                                {% for car in cars %}
+                                                <option value="{{ car.id }}">{{ car }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select name="circuitConsumption" id="circuitConsumption" class="form-select">
+                                                <option value="0">Tous les circuits</option>
+                                                {% for circuit in circuits %}
+                                                <option value="{{ circuit.id }}">{{ circuit }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col input-group">
+                                            <button name="viewConsumption" class="btn btn-primary btn-outline-light" type="submit">Rechercher</button>
+                                            <a href="{{ url_admin }}" class="btn btn-primary btn-outline-light">Tout afficher</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                <table class="table text-light text-center mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Voiture</th>
+                                            <th scope="col">Circuit</th>
+                                            <th scope="col">Consommation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if consumptions is not empty %}
+                                        {% for consumption in consumptions %}
+                                        <tr>
+                                            <td>{{ consumption.model }}</td>
+                                            <td>{{ consumption.name }}</td>
+                                            <td>{{ consumption.value }} L</td>
+                                        </tr>
+                                        {% endfor %}
+                                        {% else %}
+                                        <tr>
+                                            <td colspan="3">Aucune donnée enregistrée</td>
+                                        </tr>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <center>
+                    <a href="{{ url_index }}" class="btn btn-warning mt-2">Retour à l'index</a>
+                </center>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

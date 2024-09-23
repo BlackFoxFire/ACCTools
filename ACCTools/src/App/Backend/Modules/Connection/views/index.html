@@ -1,0 +1,21 @@
+{% extends "layout.html" %} 
+
+{% block main %}
+<main>
+    <section>
+        <div class="row">
+            <div class="col-2 m-auto">
+                <div class="d-flex flex-column justify-content-center" style="height: 90vh;">
+                    <form action="" method="post" class="input-group">
+                        <input type="password" name="password" placeholder="Mot de passe" class="form-control" required>
+                        <button type="submit" name="loggin" class="btn btn-primary btn-outline-light">Connexion</button>
+                    </form>
+                    {% if badPassword %}
+                    <div class="bg-warning text-center rounded-3 mt-2 p-2"> Mot de passe incorect</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

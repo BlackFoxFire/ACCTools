@@ -1,0 +1,21 @@
+{
+    "name": "blackfox/acctools",
+    "description": "Outils pour le jeux de course Assetto Corsa Competizione",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "blackfox/mamba": "^1.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AccTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Christophe Dufour",
+            "email": "blackfox@proximus.be"
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{% extends "layout.html" %} 
+
+{% block main %}
+<main>
+  <section class="p-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8 m-auto">
+          <h1 class="text-center">
+            <img src="{{ url_logo_acc }}" alt="Logo Assetto Corsa Competizione" class="img-fluid w-50">
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-10 m-auto bg-light bg-opacity-25 rounded-3 p-2">
+          <div class="bg-dark bg-opacity-50 rounded-3 text-light fs-5 p-3">
+            <form id="myForm">
+              <!-- Type de course -->
+              <div class="d-flex justify-content-between ">
+                <label for="raceType" class="form-label">Type de course:</label>
+                <span id="raceTypeValue">Sprint Race</span>
+              </div>
+              <input type="range" name="raceType" id="raceType" min="1" max="5" value="1" title="Type de course" class="form-range">
+              <!-- Durée de la course -->
+              <div class="d-flex justify-content-between">
+                <label for="raceTime" class="form-label">Durée de la course:</label>
+                <span id="raceTimeValue"></span>
+              </div>
+              <input type="range" name="raceTime" id="raceTime" min="0" title="Durées de la course" class="form-range">
+              <!-- Temps moyen au tour -->
+              <div class="d-flex justify-content-between">
+                <label for="lapTime" class="form-label">Temps moyen au tour:</label>
+                <span id="lapTimeValue"></span>
+              </div>
+              <input type="range" name="lapTime" id="lapTime" min="60" max="600" value="120" title="Temps d'un tour de piste en secondes" class="form-range">
+              <!-- Consommation moyenne par tour de piste -->
+              <div class="d-flex justify-content-between">
+                <label for="consumption" class="form-label">Consommation par tour: </label>
+                <span id="consumptionValue"></span>
+              </div>
+              <div class="row mt-1">
+                <div class="col-12 col-md-6">
+                  <select name="car" id="car" class="form-select">
+                    {% for car in cars %}
+                    <option value="{{ car.id }}">{{ car }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <select name="circuit" id="circuit" class="form-select">
+                    <option value="" selected>Estimation pour ...</option>
+                    {% for circuit in circuits %}
+                      <option value="{{ circuit.id }}">{{ circuit }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <input type="range" name="consumption" id="consumption" min="1" max="15" step="0.1" value="3" title="Consommation de carburant au tour" class="form-range mt-3">
+              <!-- Types d'arrêt au stand -->
+              <div id="typePitStopDiv">
+                <div class="col-12 d-flex justify-content-between">
+                  <span>Type d'arrêt aux stands: </span>
+                  <span id="typePitStopValue"></span>
+                </div>
+                <input type="range" name="typePitStop" id="typePitStop" min="1" value="1" title="Type d'arrêt aux stands" class="form-range mt-3">
+              </div>
+              <!-- Relay de course -->
+              <div id="relayDiv">
+                <div class="d-flex justify-content-between">
+                    <span>Limite de relais du pilote: </span>
+                    <span id="relayValue"></span>
+                </div>
+              </div>
+              <!-- Temps de relay d'un pilote -->
+              <input type="range" name="pilotRelayTime" id="pilotRelayTime" min="0" value="0" title="Temps de relay du pilote" class="form-range mt-3">
+              <!-- Y-a-t'il un tour de formation ? -->
+              <div class="d-flex justify-content-between mt-2">
+                <label for="formationLap" class="form-check-label">Tour de formation: </label>
+                <input type="checkbox" name="formationLap" id="formationLap" title="Y-a-t'il un tour de formation ?" class="form-check-input">
+              </div>
+              <!-- Comsommation estimée pour un relais -->
+              <div class="row mt-2" id="relayFuelDiv">
+                <div class="col-12 col-md-8">
+                    <span>Carburant par relais:</span>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div id="relayFuel" class="bg-warning p-1 rounded-3 text-center lh-1 bg-opacity-50"></div>
+                </div>
+              </div>
+              <!-- Comsommation total estimée pour la course -->
+              <div class="row mt-2">
+                <div class="col-12 col-md-8">
+                    <span>Carburant total:</span>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div id="fuel" class="bg-warning p-1 rounded-3 text-center lh-1 bg-opacity-50"></div>
+                </div>
+              </div>
+              <!-- Informations divers sur la course -->
+              <div class="row mt-3 mx-1 bg-primary bg-opacity-50 rounded-3 fs-6">
+                <!-- Nombre total de tour -->
+                <div class="col-12 col-md-6 text-center">
+                    <span>Nombre de tours:</span>
+                    <span id="totalLaps"></span>
+                </div>
+                <!-- Nombre total d'arret au stand -->
+                <div class="col-12 col-md-6 text-center">
+                  <span>Nombre d'arret au stand:</span>
+                  <span id="pitStopValue"></span>
+                </div>
+                <!-- Litres utilisés par minutes -->
+                <div class="col-12 col-md-6 text-center">
+                  <span>Litre par minutes:</span>
+                  <span id="fuelPerMinutes"></span>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                  <span id="debugValue"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <center>
+            <a href="{{ url_admin }}" class="btn btn-warning mt-2">Gestion des consommations</a>
+          </center>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

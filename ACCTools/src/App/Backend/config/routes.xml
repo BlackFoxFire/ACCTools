@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+	<route url="/admin/" controller="Acc" action="index" ></route>
+	<route url="/admin/addCar" controller="Acc" action="addCar" ></route>
+	<route url="/admin/addCircuit" controller="Acc" action="addCircuit" ></route>
+	<route url="/admin/addConsumption" controller="Acc" action="addConsumption" ></route>
+	<route url="/admin/insert" controller="Acc" action="insert" ></route>
+</routes>
