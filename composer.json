@@ -4,12 +4,12 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "blackfox/mamba": "^1.1"
+        "blackfox/mamba": "^1.2"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "AccTools\\": "src/"
+            "Acctools\\": "src/"
         }
     },
     "authors": [
