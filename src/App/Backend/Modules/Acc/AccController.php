@@ -33,26 +33,44 @@ class AccController extends BackController
         $datas = array(
             'user' => $this->app()->user(),
             'cars' => $cars,
-            'circuits' => $circuits
+            'circuits' => $circuits,
+            'id_circuit' => 0
         );
+
+        if(isset($cars[0])) {
+            $datas['id_car'] = $cars[0]->id();
+        }
 
         if($request->formIsSubmit())
         {
             $id_car = $request->getFromPost('carConsumption') ? $request->getFromPost('carConsumption') : 0;
             $id_circuit = $request->getFromPost('circuitConsumption');
 
-            if($id_circuit == 0)
-            {
+            if($id_car != 0 && $id_circuit == 0) {
+                $datas['id_car'] = $id_car;
                 $consumptions = $consoMan->readByCar($id_car);
             }
-            else
-            {
+            elseif($id_car != 0 && $id_circuit != 0) {
+                $datas['id_car'] = $id_car;
+                $datas['id_circuit'] = $id_circuit;
                 $consumptions = $consoMan->readByCarAndCircuit($id_car, $id_circuit);
+            }
+            elseif($id_car == 0 && $id_circuit != 0) {
+                $datas['id_car'] = 0;
+                $datas['id_circuit'] = $id_circuit;
+                $consumptions = $consoMan->readByCircuit($id_circuit);
+            }
+            else {
+                $datas['id_car'] = 0;
+                $consumptions = $consoMan->readAll();  
             }
         }
         else
         {
-            $consumptions = $consoMan->readAll();
+            //$consumptions = $consoMan->readAll();
+            if(isset($cars[0])) {
+                $consumptions = $consoMan->readByCar($cars[0]->id());
+            }
         }
 
         $datas['consumptions'] = $consumptions;

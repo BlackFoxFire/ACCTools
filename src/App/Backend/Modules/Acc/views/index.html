@@ -71,8 +71,13 @@
                                     <div class="row gy-2 gy-md-0">
                                         <div class="col">
                                             <select name="carConsumption" id="carConsumption" class="form-select">
+                                                <option value="0">Toutes voitures</option>
                                                 {% for car in cars %}
+                                                {% if car.id == id_car %}
+                                                <option value="{{ car.id }}" selected>{{ car }}</option>
+                                                {% else %}
                                                 <option value="{{ car.id }}">{{ car }}</option>
+                                                {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -80,13 +85,17 @@
                                             <select name="circuitConsumption" id="circuitConsumption" class="form-select">
                                                 <option value="0">Tous les circuits</option>
                                                 {% for circuit in circuits %}
+                                                {% if circuit.id == id_circuit %}
+                                                <option value="{{ circuit.id }}" selected>{{ circuit }}</option>
+                                                {% else %}
                                                 <option value="{{ circuit.id }}">{{ circuit }}</option>
+                                                {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>
                                         <div class="col input-group">
                                             <button name="viewConsumption" class="btn btn-primary btn-outline-light" type="submit">Rechercher</button>
-                                            <a href="{{ url_admin }}" class="btn btn-primary btn-outline-light">Tout afficher</a>
+                                            <a href="{{ url_admin }}" class="btn btn-primary btn-outline-light">Réinitialiser</a>
                                         </div>
                                     </div>
                                 </form>

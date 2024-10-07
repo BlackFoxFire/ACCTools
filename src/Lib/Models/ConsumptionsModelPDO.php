@@ -140,4 +140,24 @@ class ConsumptionsModelPDO extends ConsumptionsModel
         return $datas;
     }
 
+    /**
+     * Retourne tous les enregistrements pour un circuit donné
+     */
+    public function readByCircuit(int $id_circuit): array
+    {
+        $sql  = "select cars.model, circuits.name, consumptions.value ";
+        $sql .= "from consumptions ";
+        $sql .= "join cars on cars.id = consumptions.id_car ";
+        $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
+        $sql .= "where id_circuit=? ";
+        $sql .= "order by cars.model";
+
+        $request = $this->execute($sql, [$id_circuit]);
+        $request->setFetchMode(\PDO::FETCH_ASSOC);
+        $datas = $request->fetchAll();
+		$request->closeCursor();
+
+        return $datas;
+    }
+
 }

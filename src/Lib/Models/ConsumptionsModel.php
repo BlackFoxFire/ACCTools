@@ -66,4 +66,9 @@ abstract class ConsumptionsModel extends Model
      * Retourne tous les enregistrements pour un modèle de voiture et un circuit donné
      */
     abstract public function readByCarAndCircuit(int $id_car, int $id_circuit): array;
+
+    /**
+     * Retourne tous les enregistrements pour un circuit donné
+     */
+    abstract public function readByCircuit(int $id_circuit): array;
 }
