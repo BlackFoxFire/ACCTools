@@ -9,7 +9,7 @@
 */
 
 // Namespace et nom de l'application
-$appName = "AccTools";
+$appName = "Blackfox\AccTools";
 
 // Gestion des erreurs
 error_reporting(E_ALL);         // Toutes les erreurs sont rapportées
