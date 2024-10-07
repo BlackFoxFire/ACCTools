@@ -6,14 +6,14 @@
  * 
  */
 
-namespace AccTools\App\Backend\Modules\Acc;
+namespace Blackfox\AccTools\App\Backend\Modules\Acc;
 
 use Mamba\BackController;
 use Mamba\HTTPRequest;
 use \Mamba\Link;
-use AccTools\Lib\Entities\Car;
-use AccTools\Lib\Entities\Circuit;
-use AccTools\Lib\Entities\Consumption;
+use Blackfox\AccTools\Lib\Entities\Car;
+use Blackfox\AccTools\Lib\Entities\Circuit;
+use Blackfox\AccTools\Lib\Entities\Consumption;
 
 class AccController extends BackController
 {

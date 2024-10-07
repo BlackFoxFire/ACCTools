@@ -6,7 +6,7 @@
  * 
  */
 
-namespace AccTools\App\Backend\Modules\Connection;
+namespace Blackfox\AccTools\App\Backend\Modules\Connection;
 
 use Mamba\BackController;
 use Mamba\Config;

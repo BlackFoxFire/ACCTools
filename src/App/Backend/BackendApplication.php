@@ -9,7 +9,7 @@
 *
 */
 
-namespace AccTools\App\Backend;
+namespace Blackfox\AccTools\App\Backend;
 
 use \Mamba\Application;
 
@@ -40,7 +40,7 @@ class BackendApplication extends Application
 		}
 		else
 		{
-			$controller = new \AccTools\App\Backend\Modules\Connection\ConnectionController($this,'Connection', 'index');
+			$controller = new \Blackfox\AccTools\App\Backend\Modules\Connection\ConnectionController($this,'Connection', 'index');
 		}
 
 		$controller->execute();

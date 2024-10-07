@@ -6,7 +6,7 @@
  * 
  */
 
-namespace AccTools\App\Frontend\Modules\Acc;
+namespace Blackfox\AccTools\App\Frontend\Modules\Acc;
 
 use Mamba\BackController;
 use Mamba\HTTPRequest;

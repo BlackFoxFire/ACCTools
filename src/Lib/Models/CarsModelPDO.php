@@ -6,9 +6,9 @@
  * 
  */
 
-namespace AccTools\Lib\Models;
+namespace Blackfox\AccTools\Lib\Models;
 
-use AccTools\Lib\Entities\Car;
+use Blackfox\AccTools\Lib\Entities\Car;
 
 class CarsModelPDO extends CarsModel
 {
@@ -34,7 +34,7 @@ class CarsModelPDO extends CarsModel
         $sql = "select * from cars order by model";
 
         $request = $this->execute($sql);
-        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\AccTools\Lib\Entities\Car');
+        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Blackfox\AccTools\Lib\Entities\Car');
         $datas = $request->fetchAll();
 		$request->closeCursor();
 

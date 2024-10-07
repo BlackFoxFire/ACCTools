@@ -6,10 +6,10 @@
  * 
  */
 
-namespace AccTools\Lib\Models;
+namespace Blackfox\AccTools\Lib\Models;
 
 use Mamba\Model;
-use AccTools\Lib\Entities\Circuit;
+use Blackfox\AccTools\Lib\Entities\Circuit;
 
 abstract class CircuitsModel extends Model
 {

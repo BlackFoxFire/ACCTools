@@ -9,7 +9,7 @@
 *
 */
 
-namespace AccTools\App\Frontend;
+namespace Blackfox\AccTools\App\Frontend;
 
 use \Mamba\Application;
 

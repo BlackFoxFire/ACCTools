@@ -6,9 +6,9 @@
  * 
  */
 
-namespace AccTools\Lib\Models;
+namespace Blackfox\AccTools\Lib\Models;
 
-use AccTools\Lib\Entities\Consumption;
+use Blackfox\AccTools\Lib\Entities\Consumption;
 
 class ConsumptionsModelPDO extends ConsumptionsModel
 {
@@ -59,7 +59,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
         $sql = "select * from consumptions where id_car=? and id_circuit=?";
 
         $request = $this->execute($sql, [$id_car, $id_circuit]);
-        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\AccTools\Lib\Entities\Consumption');
+        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Blackfox\AccTools\Lib\Entities\Consumption');
         $datas = $request->fetch();
 		$request->closeCursor();
 

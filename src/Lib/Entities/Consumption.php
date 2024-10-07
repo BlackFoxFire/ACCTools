@@ -6,7 +6,7 @@
  * 
  */
 
- namespace AccTools\Lib\Entities;
+ namespace Blackfox\AccTools\Lib\Entities;
 
  use Mamba\Entity;
  use Mamba\Traits\DigitTester;

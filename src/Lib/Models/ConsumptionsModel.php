@@ -6,10 +6,10 @@
  * 
  */
 
-namespace AccTools\Lib\Models;
+namespace Blackfox\AccTools\Lib\Models;
 
 use Mamba\Model;
-use AccTools\Lib\Entities\Consumption;
+use Blackfox\AccTools\Lib\Entities\Consumption;
 
 abstract class ConsumptionsModel extends Model
 {
