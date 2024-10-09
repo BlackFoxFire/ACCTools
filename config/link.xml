@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <definitions>
     <!-- Fichier CSS -->
-    <define var="url_css" value="/acctools/css/style.css" ></define>
+    <define var="url_css" value="/css/style.css" ></define>
     <!-- Fichiers javascript -->
-    <define var="url_js_vars" value="/acctools/javascript/vars.js" ></define>
-    <define var="url_js_estimate" value="/acctools/javascript/loadEstimate.js" ></define>
-    <define var="url_js_events" value="/acctools/javascript/events.js" ></define>
-    <define var="url_js_functions" value="/acctools/javascript/functions.js" ></define>
-    <define var="url_js_updateRaceType" value="/acctools/javascript/updateRaceType.js" ></define>
-    <define var="url_js_updateRaceTime" value="/acctools/javascript/updateRaceTime.js" ></define>
-    <define var="url_js_updateLapTime" value="/acctools/javascript/updateLapTime.js" ></define>
-    <define var="url_js_updateCircuit" value="/acctools/javascript/updateCircuit.js" ></define>
-    <define var="url_js_updateConsumptionValue" value="/acctools/javascript/updateConsumptionValue.js" ></define>
-    <define var="url_js_updatesRelay" value="/acctools/javascript/updatesRelay.js" ></define>
-    <define var="url_js_updateCunsuption" value="/acctools/javascript/updateConsumption.js" ></define>
-    <define var="url_js_init" value="/acctools/javascript/init.js" ></define>
+    <define var="url_js_vars" value="/javascript/vars.js" ></define>
+    <define var="url_js_estimate" value="/javascript/loadEstimate.js" ></define>
+    <define var="url_js_events" value="/javascript/events.js" ></define>
+    <define var="url_js_functions" value="/javascript/functions.js" ></define>
+    <define var="url_js_updateRaceType" value="/javascript/updateRaceType.js" ></define>
+    <define var="url_js_updateRaceTime" value="/javascript/updateRaceTime.js" ></define>
+    <define var="url_js_updateLapTime" value="/javascript/updateLapTime.js" ></define>
+    <define var="url_js_updateCircuit" value="/javascript/updateCircuit.js" ></define>
+    <define var="url_js_updateConsumptionValue" value="/javascript/updateConsumptionValue.js" ></define>
+    <define var="url_js_updatesRelay" value="/javascript/updatesRelay.js" ></define>
+    <define var="url_js_updateCunsuption" value="/javascript/updateConsumption.js" ></define>
+    <define var="url_js_init" value="/javascript/init.js" ></define>
     <!-- Logo Acc -->
-    <define var="url_logo_acc" value="/acctools/pictures/acc.png"></define>
+    <define var="url_logo_acc" value="/pictures/acc.png"></define>
     <!-- Controller Acc -->
-    <define var="url_index" value="/acctools"></define>
+    <define var="url_index" value="/"></define>
     <!-- Zone admin Acc -->
-    <define var="url_admin" value="/acctools/admin/" ></define>
+    <define var="url_admin" value="/admin/" ></define>
 </definitions>

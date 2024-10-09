@@ -7,7 +7,7 @@ body {
 }
 
 main {
-    background-image: url("/acctools/pictures/bg.jpg");
+    background-image: url("/pictures/bg.jpg");
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
