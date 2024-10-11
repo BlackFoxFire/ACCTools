@@ -13,7 +13,7 @@ function loadEstimate()
         }
     };
 
-    let url = "/acctools/estimate-" + car.value + "-" + circuit.value;
+    let url = "/estimate-" + car.value + "-" + circuit.value;
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
