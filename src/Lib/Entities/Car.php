@@ -8,7 +8,7 @@
 
  namespace Blackfox\AccTools\Lib\Entities;
 
- use Mamba\Entity;
+ use Blackfox\Mamba\Entity;
 
  class Car extends Entity
  {

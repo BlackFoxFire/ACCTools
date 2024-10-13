@@ -8,9 +8,9 @@
 
 namespace Blackfox\AccTools\App\Backend\Modules\Acc;
 
-use Mamba\BackController;
-use Mamba\HTTPRequest;
-use \Mamba\Link;
+use Blackfox\Mamba\BackController;
+use Blackfox\Mamba\HTTPRequest;
+use Blackfox\Mamba\Link;
 use Blackfox\AccTools\Lib\Entities\Car;
 use Blackfox\AccTools\Lib\Entities\Circuit;
 use Blackfox\AccTools\Lib\Entities\Consumption;

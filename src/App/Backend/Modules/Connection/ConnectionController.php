@@ -8,10 +8,10 @@
 
 namespace Blackfox\AccTools\App\Backend\Modules\Connection;
 
-use Mamba\BackController;
-use Mamba\Config;
-use Mamba\HTTPRequest;
-use Mamba\Link;
+use Blackfox\Mamba\BackController;
+use Blackfox\Mamba\Config;
+use Blackfox\Mamba\HTTPRequest;
+use Blackfox\Mamba\Link;
 
 class ConnectionController extends BackController
 {

@@ -11,7 +11,7 @@
 
 namespace Blackfox\AccTools\App\Backend;
 
-use \Mamba\Application;
+use Blackfox\Mamba\Application;
 
 class BackendApplication extends Application
 {

@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "blackfox/mamba",
-            "version": "1.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BlackFoxFire/mamba.git",
-                "reference": "87046d7105879988d0cf629632290ee5f2dde8ec"
+                "reference": "ca1153886b0abd68f057528aa6e2d349ee243e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BlackFoxFire/mamba/zipball/87046d7105879988d0cf629632290ee5f2dde8ec",
-                "reference": "87046d7105879988d0cf629632290ee5f2dde8ec",
+                "url": "https://api.github.com/repos/BlackFoxFire/mamba/zipball/ca1153886b0abd68f057528aa6e2d349ee243e2a",
+                "reference": "ca1153886b0abd68f057528aa6e2d349ee243e2a",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Mamba\\": "src/"
+                    "Blackfox\\Mamba\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -44,9 +44,9 @@
             "description": "Petit framework php simple et lèger",
             "support": {
                 "issues": "https://github.com/BlackFoxFire/mamba/issues",
-                "source": "https://github.com/BlackFoxFire/mamba/tree/1.2"
+                "source": "https://github.com/BlackFoxFire/mamba/tree/1.2.1"
             },
-            "time": "2024-09-22T17:16:39+00:00"
+            "time": "2024-10-13T17:21:51+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

@@ -8,8 +8,8 @@
 
  namespace Blackfox\AccTools\Lib\Entities;
 
- use Mamba\Entity;
- use Mamba\Traits\DigitTester;
+ use Blackfox\Mamba\Entity;
+ use Blackfox\Mamba\Traits\DigitTester;
 
  class Consumption extends Entity
  {
