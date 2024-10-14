@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "blackfox/mamba",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BlackFoxFire/mamba.git",
-                "reference": "ca1153886b0abd68f057528aa6e2d349ee243e2a"
+                "reference": "f9e937ea62acc5953fbfc128c31066c63fc31c71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BlackFoxFire/mamba/zipball/ca1153886b0abd68f057528aa6e2d349ee243e2a",
-                "reference": "ca1153886b0abd68f057528aa6e2d349ee243e2a",
+                "url": "https://api.github.com/repos/BlackFoxFire/mamba/zipball/f9e937ea62acc5953fbfc128c31066c63fc31c71",
+                "reference": "f9e937ea62acc5953fbfc128c31066c63fc31c71",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             "description": "Petit framework php simple et lèger",
             "support": {
                 "issues": "https://github.com/BlackFoxFire/mamba/issues",
-                "source": "https://github.com/BlackFoxFire/mamba/tree/1.2.1"
+                "source": "https://github.com/BlackFoxFire/mamba/tree/1.2.2"
             },
-            "time": "2024-10-13T17:21:51+00:00"
+            "time": "2024-10-14T07:23:43+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
