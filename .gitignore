@@ -1,5 +1,3 @@
 /vendor/
-/config/db.xml
 /config/db.json
-/src/App/Backend/config/app.xml
 /src/App/Backend/config/app.json

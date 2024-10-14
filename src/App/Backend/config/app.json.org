@@ -1,3 +1,0 @@
-{
-    "password": "$2y$10$Vc0DunDxOWHQO6SVP8O.CuP1PRX0RgDWwVM.LL2D6VOMApn.Fsiui"
-}
