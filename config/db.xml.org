@@ -1,9 +1,0 @@
-<!-- Fichier db.xml -->
-<!-- Renommez ce fichier en db.xml -->
-<?xml version="1.0" encoding="utf-8" ?>
-<definitions>
-	<!-- Entrez ci-dessous les informations de votre base de données -->
-	<define var="db" value=""></define>
-	<define var="login" value=""></define>
-	<define var="password" value=""></define>
-</definitions>

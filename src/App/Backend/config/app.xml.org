@@ -1,9 +1,0 @@
-<!-- Fichier app.xml -->
-<!-- Renommez ce fichier en app.xml -->
-<?xml version="1.0" encoding="utf-8" ?>
-<definitions>
-	<!-- <define var="" value="" ></define> -->
-	<!-- Mot de passe par defaut : admin -->
-	<!-- Le mot de passe doit être chiffré avec la fonction password_hash de php -->
-	<define var="password" value="$2y$10$Vc0DunDxOWHQO6SVP8O.CuP1PRX0RgDWwVM.LL2D6VOMApn.Fsiui" ></define>
-</definitions>

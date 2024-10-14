@@ -1,0 +1,18 @@
+{
+    "url_css":                          "/css/style.css",
+    "url_js_vars":                      "/javascript/vars.js",
+    "url_js_estimate":                  "/javascript/loadEstimate.js",
+    "url_js_events":                    "/javascript/events.js",
+    "url_js_functions":                 "/javascript/functions.js",
+    "url_js_updateRaceType":            "/javascript/updateRaceType.js",
+    "url_js_updateRaceTime":            "/javascript/updateRaceTime.js",
+    "url_js_updateLapTime":             "/javascript/updateLapTime.js",
+    "url_js_updateCircuit":             "/javascript/updateCircuit.js",
+    "url_js_updateConsumptionValue":    "/javascript/updateConsumptionValue.js",
+    "url_js_updatesRelay":              "/javascript/updatesRelay.js",
+    "url_js_updateCunsuption":          "/javascript/updateConsumption.js",
+    "url_js_init":                      "/javascript/init.js",
+    "url_logo_acc":                     "/pictures/acc.png",
+    "url_index":                        "/",
+    "url_admin":                        "/admin/"
+}
