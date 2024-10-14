@@ -9,12 +9,10 @@
  namespace Blackfox\AccTools\Lib\Entities;
 
  use Blackfox\Mamba\Entity;
- use Blackfox\Mamba\Traits\DigitTester;
+ use Blackfox\DigitalChainTest\DigitalChainTest;
 
  class Consumption extends Entity
  {
-    
-    use DigitTester;
 
     /**
      * Constante
@@ -69,7 +67,7 @@
      */
     public function setId_car(int $id_car): void
     {
-        if($this->isInt($id_car) && $this->isPositive($id_car))
+        if(DigitalChainTest::isInt($id_car) && DigitalChainTest::isPositive($id_car))
         {
             $this->id_car = $id_car;
         }
@@ -80,7 +78,7 @@
      */
     public function setId_circuit(int $id_circuit): void
     {
-        if($this->isInt($id_circuit) && $this->isPositive($id_circuit))
+        if(DigitalChainTest::isInt($id_circuit) && DigitalChainTest::isPositive($id_circuit))
         {
             $this->id_circuit = $id_circuit;
         }
@@ -91,7 +89,7 @@
      */
     public function setValue(int|float $value): void
     {
-        if($this->isBetween($value, 1, 15))
+        if(DigitalChainTest::isBetween($value, 1, 15))
         {
             $this->value = $value;
         }

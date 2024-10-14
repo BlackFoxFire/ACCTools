@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "blackfox/mamba": "^1.2"
+        "blackfox/mamba": "^1.2",
+        "blackfox/digitalchaintest": "^1.0"
     },
     "license": "MIT",
     "autoload": {

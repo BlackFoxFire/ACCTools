@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0acf0ff2455dafdedf28951f1cbc692",
+    "content-hash": "839970a66707d1bc118eec25a0dc6153",
     "packages": [
+        {
+            "name": "blackfox/digitalchaintest",
+            "version": "V1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BlackFoxFire/digitalchaintest.git",
+                "reference": "5b890a18e27a29aedae329d4aeb9af2a6cfbec33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BlackFoxFire/digitalchaintest/zipball/5b890a18e27a29aedae329d4aeb9af2a6cfbec33",
+                "reference": "5b890a18e27a29aedae329d4aeb9af2a6cfbec33",
+                "shasum": ""
+            },
+            "require": {
+                "composer": "^2.6",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Blackfox\\DigitalChainTest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Dufour",
+                    "email": "blackfox@proximus.be"
+                }
+            ],
+            "description": "Permet de tester les nombres provenant de formulaire HTLM",
+            "support": {
+                "issues": "https://github.com/BlackFoxFire/digitalchaintest/issues",
+                "source": "https://github.com/BlackFoxFire/digitalchaintest/tree/V1.0.1"
+            },
+            "time": "2024-10-14T09:53:37+00:00"
+        },
         {
             "name": "blackfox/mamba",
             "version": "1.2.2",
