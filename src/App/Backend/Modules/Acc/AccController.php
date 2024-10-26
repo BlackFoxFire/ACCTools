@@ -10,7 +10,6 @@ namespace Blackfox\AccTools\App\Backend\Modules\Acc;
 
 use Blackfox\Mamba\BackController;
 use Blackfox\Mamba\HTTPRequest;
-use Blackfox\Mamba\Link;
 use Blackfox\AccTools\Lib\Entities\Car;
 use Blackfox\AccTools\Lib\Entities\Circuit;
 use Blackfox\AccTools\Lib\Entities\Consumption;
@@ -109,7 +108,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect(Link::get('url_admin'));
+        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
     }
 
     /**
@@ -144,7 +143,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect(Link::get('url_admin'));
+        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
     }
 
     /**
@@ -184,7 +183,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect(Link::get('url_admin'));
+        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
     }
 
     /**
@@ -194,7 +193,8 @@ class AccController extends BackController
     {
         $consoMan = $this->managers->getManagerOf('Consumptions');
 
-        $car = 1;
+        $car = 5; // BMW M4 GT3
+        //$car = 7; // Ferrari 296 GT3
         $circuit = 0;
         $values = [2.9, 2.9, 3.5, 2.5, 2.9, 3.5, 2.6, 2.9, 2.5, 2.9, 3.6, 3.8, 3.3, 14, 2.5, 3.3, 2.7, 3.3, 2.7, 4.1, 3.6, 2.6, 3.4, 2.9, 2.7];
         //$values = [2.6, 2.6, 3.4, 2.3, 2.5, 2.9, 2.5, 2.6, 2.1, 2.4, 3.0, 3.5, 2.8, 13, 2.2, 2.9, 2.3, 2.9, 2.5, 3.6, 3.2, 2.5, 3.3, 2.5, 2.3];
@@ -214,7 +214,7 @@ class AccController extends BackController
             
         }
 
-        $this->app->httpResponse()->redirect(Link::get('url_admin'));
+        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
     }
 
  }

@@ -9,9 +9,7 @@
 namespace Blackfox\AccTools\App\Backend\Modules\Connection;
 
 use Blackfox\Mamba\BackController;
-use Blackfox\Mamba\Config;
 use Blackfox\Mamba\HTTPRequest;
-use Blackfox\Mamba\Link;
 
 class ConnectionController extends BackController
 {
@@ -25,10 +23,10 @@ class ConnectionController extends BackController
         {
             $password = $request->getFromPost('password');
 
-            if(password_verify($password, Config::get('password')))
+            if(password_verify($password, $this->app->backConfig()->get('password')))
             {
                 $this->app->user()->setAuthenticated(true);
-                $this->app->httpResponse()->redirect(Link::get('url_admin'));
+                $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
             }
             else
             {
