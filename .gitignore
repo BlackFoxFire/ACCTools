@@ -1,4 +1,4 @@
 /vendor/
+/config/app.json
 /config/db.json
 /src/App/Backend/config/app.json
-/sql/127_0_0_1.sql

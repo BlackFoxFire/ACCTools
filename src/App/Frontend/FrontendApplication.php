@@ -15,7 +15,7 @@ use Blackfox\Mamba\Application;
 
 class FrontendApplication extends Application
 {
-	
+
 	/*
 		Constructeur
 		------------
@@ -25,7 +25,7 @@ class FrontendApplication extends Application
 		$this->name = "Frontend";
 		parent::__construct($rootDir, $appDir, $appName);
 	}
-	
+
 	/*
 		Les méthodes
 		------------
@@ -34,10 +34,17 @@ class FrontendApplication extends Application
 	// Lance l'application
 	public function run(): void
 	{
-		$controller = $this->getController();
+		if($this->appConfig->get('installed')) {
+			$controller = $this->getController();
+		}
+		else {
+			$controller = new \Blackfox\AccTools\App\Frontend\Modules\Install\InstallController($this,'Install', 'index');
+		}
+
 		$controller->execute();
 
 		$this->httpResponse->setView($controller->view());
 		$this->httpResponse->render();
 	}
+
 }

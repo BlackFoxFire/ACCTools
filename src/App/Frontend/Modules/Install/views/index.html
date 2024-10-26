@@ -1,0 +1,61 @@
+{% extends "layout.html" %} 
+
+{% block main %}
+<main>
+    <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-8 m-auto">
+            <h1 class="text-center">
+              <img src="{{ url_logo_acc }}" alt="Logo Assetto Corsa Competizione" class="img-fluid w-50">
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-10 m-auto bg-light bg-opacity-25 rounded-3 p-2">
+                <div class="bg-dark bg-opacity-50 rounded-3 text-light fs-5 p-3">
+                    <form id="InstallForm" action="" method="post" class="">
+                        <p class="text-center">
+                          Assistant d'installation
+                        </p>
+                        <p class="text-center">
+                          Veuillez entrer les informations d'accès à votre base de données:
+                        </p>
+                        <div class="form-floating text-dark m-3">
+                          <input type="text" name="db" id="db" class="form-control" placeholder="Base de données" {% if db is not empty %} value="{{ db }}" {% endif %} required>
+                          <label for="db">Base de données</label>
+                        </div>
+                        <div class="form-floating text-dark m-3">
+                          <input type="text" name="login" id="login" class="form-control" placeholder="Utilisateur" {% if login is not empty %} value="{{ login }}" {% endif %} required>
+                          <label for="login">Utilisateur</label>
+                        </div>
+                        <div class="form-floating text-dark m-3">
+                          <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" {% if password is not empty %} value="{{ password }}" {% endif %} required>
+                          <label for="password">Mot de passe</label>
+                        </div>
+                        {% if dbError is defined %}
+                        <div class="bg-danger text-center rounded-3 m-3 p-2">
+                          Impossible de se connecter à la base de données.
+                        </div>
+                        {% endif %}
+                        <p class="text-center">
+                          Entrez un mot de passe pour la zone d'administration
+                        </p>
+                        <div class="form-floating text-dark m-3">
+                          <input type="password" name="adminPass" id="adminPass" class="form-control" placeholder="Mot de passe" {% if adminPass is not empty %} value="{{ adminPass }}" {% endif %} required>
+                          <label for="adminPass">Mot de passe</label>
+                        </div>
+                        {% if adminPassError is defined %}
+                        <div class="bg-danger text-center rounded-3 m-3 p-2">
+                          Mot de passe invalide
+                        </div>
+                        {% endif %}
+                        <div class="text-center">
+                          <button name="submit" type="submit" class="btn btn-primary">Valider</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
