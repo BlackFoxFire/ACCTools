@@ -46,7 +46,12 @@ class AccController extends BackController
             $consoMan = $this->managers->getManagerOf('Consumptions');
             $consumption = $consoMan->search($car, $circuit);
 
-            $this->view->setData('estimate', $consumption->value());
+            if($consumption !== false) {
+                $this->view->setData('estimate', $consumption->value());
+            }
+            else {
+                $this->view->setData('estimate', 0);
+            }
         }
     }
 

@@ -7,9 +7,13 @@ function loadEstimate()
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-        consumption.value = this.responseText;
-        updateConsumptionValue();
-        updateConsumption();
+            let value = this.responseText;
+
+            if(value > 0) {
+                consumption.value = value;
+                updateConsumptionValue();
+                updateConsumption();
+            }
         }
     };
 
