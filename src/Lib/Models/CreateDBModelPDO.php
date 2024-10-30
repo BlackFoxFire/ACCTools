@@ -84,7 +84,8 @@ class CreateDBModelPDO extends CreateDBModel
             id smallint(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
             id_car tinyint(2) UNSIGNED NOT NULL,
             id_circuit tinyint(2) UNSIGNED NOT NULL,
-            value decimal(3,1) UNSIGNED NOT NULL)";
+            value decimal(4,2) UNSIGNED NOT NULL),
+            update_time datetime DEFAULT NULL";
 
         $request = $this->execute($sql);
         $request->closeCursor();

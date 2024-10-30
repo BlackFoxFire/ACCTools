@@ -72,6 +72,13 @@ class AccController extends BackController
             }
         }
 
+        foreach($consumptions as $consumption) {
+            if(!is_null($consumption['update_time'])) {
+                $update_time = new \DateTime($consumption['update_time']);
+                $consumption['update_time'] = $update_time->format("d-m-Y à H:i");
+            }
+        }
+
         $datas['consumptions'] = $consumptions;
         $this->view->setData($datas);
     }

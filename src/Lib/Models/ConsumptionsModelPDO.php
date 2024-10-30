@@ -37,7 +37,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     protected function update(Consumption $consumption): int
     {
-        $sql = "update consumptions set value=? where id=?";
+        $sql = "update consumptions set value=?,  update_time=now() where id=?";
 
         $datas = array(
             $consumption->value(),
@@ -59,11 +59,15 @@ class ConsumptionsModelPDO extends ConsumptionsModel
         $sql = "select * from consumptions where id_car=? and id_circuit=?";
 
         $request = $this->execute($sql, [$id_car, $id_circuit]);
-        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Blackfox\AccTools\Lib\Entities\Consumption');
+        $request->setFetchMode(\PDO::FETCH_ASSOC);
         $datas = $request->fetch();
 		$request->closeCursor();
 
-        return $datas;
+        if($datas) {
+            $consumption = new Consumption($datas);
+        }
+
+        return $consumption;
     }
 
     /**
@@ -86,7 +90,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readAll(): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value ";
+        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -105,7 +109,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCar(int $id_car): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value ";
+        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -125,7 +129,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCarAndCircuit(int $id_car, int $id_circuit): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value ";
+        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -145,7 +149,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCircuit(int $id_circuit): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value ";
+        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";

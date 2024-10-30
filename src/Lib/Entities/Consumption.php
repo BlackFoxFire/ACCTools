@@ -24,9 +24,10 @@
     /**
      * Attributs
      */
-    protected int $id_car;          // Id d'une voiture
-    protected int $id_circuit;      // id d'un circuit
-    protected float $value;         // Valeur de la consommation
+    protected int $id_car;              // Id d'une voiture
+    protected int $id_circuit;          // id d'un circuit
+    protected float $value;             // Valeur de la consommation
+    protected \DateTime|null $update_time;   // Date de la dernière mise à jour
 
     /**
      * Getters
@@ -55,6 +56,14 @@
     public function value(): string
     {
         return $this->value;
+    }
+
+    /**
+     * Retourne la valeur de l'attribut $update_time
+     */
+    public function update_time(): \DateTime|null
+    {
+        return $this->update_time == null ? null : $this->update_time->format("d-m-Y à H:i");
     }
 
     /**
@@ -92,6 +101,19 @@
         if(DigitalChainTest::isBetween($value, 1, 15))
         {
             $this->value = $value;
+        }
+    }
+
+    /**
+     * Retourne la valeur de l'attribut $update_time
+     */
+    public function setUpdate_time(string|null $update_time): void
+    {
+        if ($update_time == null) {
+            $this->update_time = null;
+        }
+        else {
+            $this->update_time = new \DateTime($update_time);
         }
     }
 
