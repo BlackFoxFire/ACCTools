@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="input-group">
-                                    <input type="number" name="consumption" id="consumption"placeholder="Ajouter une consommation"  min="1" max="15" step="0.1" class="form-control" required>
+                                    <input type="number" name="consumption" id="consumption"placeholder="Ajouter une consommation"  min="1" max="15" step="0.01" class="form-control" required>
                                     <button name="addConsumption" class="btn btn-primary btn-outline-light" type="submit">Valider</button>
                                 </div>
                             </div>
@@ -105,6 +105,7 @@
                                             <th scope="col">Voiture</th>
                                             <th scope="col">Circuit</th>
                                             <th scope="col">Consommation</th>
+                                            <th scope="col">Mise à jour</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -114,11 +115,18 @@
                                             <td>{{ consumption.model }}</td>
                                             <td>{{ consumption.name }}</td>
                                             <td>{{ consumption.value }} L</td>
+                                            <td>
+                                                {% if consumption.update_time != null %}
+                                                {{ consumption.update_time }}
+                                                {% else %}
+                                                -
+                                                {% endif %}
+                                            </td>
                                         </tr>
                                         {% endfor %}
                                         {% else %}
                                         <tr>
-                                            <td colspan="3">Aucune donnée enregistrée</td>
+                                            <td colspan="4">Aucune donnée enregistrée</td>
                                         </tr>
                                         {% endif %}
                                     </tbody>

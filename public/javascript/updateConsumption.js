@@ -4,9 +4,9 @@
  */
 function updateConsumption()
 {
-    let totalLaps = Math.ceil(raceTimeArray[raceTime.value] / (lapTime.value / 60));
-    let fuelPerMinutes = ((consumption.value / lapTime.value) * 60).toFixed('2');
-    let conso = totalLaps * consumption.value;
+    let totalLaps = Math.ceil(raceTimeArray[raceTime.value] / (Number(lapTime.value) / 60));
+    let fuelPerMinutes = ((Number(consumption.value) / Number(lapTime.value)) * 60).toFixed('2');
+    let conso = totalLaps * Number(consumption.value);
 
     if(formationLap.checked) {
         conso = conso + Number(consumption.value);

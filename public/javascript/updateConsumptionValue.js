@@ -4,5 +4,5 @@
  */
 function updateConsumptionValue()
 {
-    innerHTML("consumptionValue", Number(consumption.value).toFixed('1') + ' L');
+    innerHTML("consumptionValue", Number(consumption.value).toFixed('2') + ' L');
 }
