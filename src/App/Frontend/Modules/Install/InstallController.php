@@ -9,6 +9,7 @@
 namespace Blackfox\AccTools\App\Frontend\Modules\Install;
 
 use Blackfox\Mamba\BackController;
+use Blackfox\Mamba\Enums\ConfigValue;
 use Blackfox\Mamba\HTTPRequest;
 use Blackfox\Mamba\PDOFactory;
 
@@ -51,16 +52,18 @@ class InstallController extends BackController
             }
 
             if($this->connectionTest($dbConf) && $this->adminPassTest($adminPass)) {
-                $this->writeDbConf($datas);
+                $this->app->config()->set('dbname', $dbConf['db'], ConfigValue::Database);
+                $this->app->config()->set('username', $dbConf['login'], ConfigValue::Database);
+                $this->app->config()->set('password', $dbConf['password'], ConfigValue::Database);
 
                 $adminPass = password_hash($adminPass, PASSWORD_DEFAULT);
-                $this->app->backConfig()->create(['password' => $adminPass]);
+                $this->app->config()->set('password', $adminPass, ConfigValue::Backend);
 
                 $man = $this->managers->getManagerOf('CreateDB');
                 $man->createDB();
 
-                $this->app->appConfig()->set('installed', true);
-                $this->app->appConfig()->write();
+                $this->app->config()->set('installed', true, ConfigValue::Global);
+                $this->app->config()->write();
 
                 $this->app->httpResponse()->redirect("/");
             }
@@ -77,8 +80,9 @@ class InstallController extends BackController
      */
     protected function setAppConfig(): int|false
     {
-        if(empty($this->app->appConfig()->get())) {
-            return $this->app->appConfig()->create(['installed' => false]);
+        if(empty($this->app->config['global'])) {
+            $this->app->config()->set('installed', false, ConfigValue::Global);
+            return $this->app->config()->write();
         }
 
         return false;
@@ -119,23 +123,6 @@ class InstallController extends BackController
         }
 
         return false;
-    }
-
-    /**
-     * Ecrit le fichier de configguration de la base de données
-     * Retourne le nombre d'octets écrits, ou false si une erreur survient.
-     * 
-     * @param array $dbConf, tableau de configuration de la base de données
-     * 
-     * @return int|false
-     */
-    protected function writeDbConf(array $dbConf): int|false
-    {
-        foreach($dbConf as $key => $value) {
-            $this->app->dbConfig()->set($key, $value);
-        }
-
-        return $this->app->dbConfig()->write();
     }
 
 }

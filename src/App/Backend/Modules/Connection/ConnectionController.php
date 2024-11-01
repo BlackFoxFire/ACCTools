@@ -22,9 +22,8 @@ class ConnectionController extends BackController
         if($request->formIsSubmit())
         {
             $password = $request->getFromPost('password');
-
-            if(password_verify($password, $this->app->backConfig()->get('password')))
-            {
+            
+            if(password_verify($password, $this->app->config()['backend']['password'])) {
                 $this->app->user()->setAuthenticated(true);
                 $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
             }
