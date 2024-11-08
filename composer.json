@@ -4,7 +4,7 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "blackfox/mamba": "^1.2",
+        "blackfox/framework": "^1.3",
         "blackfox/digitalchaintest": "^1.0"
     },
     "license": "MIT",
@@ -18,5 +18,8 @@
             "name": "Christophe Dufour",
             "email": "blackfox@proximus.be"
         }
-    ]
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^7.1"
+    }
 }
