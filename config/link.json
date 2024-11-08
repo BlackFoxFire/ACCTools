@@ -7,7 +7,6 @@
     "url_js_updateRaceType":            "/javascript/updateRaceType.js",
     "url_js_updateRaceTime":            "/javascript/updateRaceTime.js",
     "url_js_updateLapTime":             "/javascript/updateLapTime.js",
-    "url_js_updateCircuit":             "/javascript/updateCircuit.js",
     "url_js_updateConsumptionValue":    "/javascript/updateConsumptionValue.js",
     "url_js_updatesRelay":              "/javascript/updatesRelay.js",
     "url_js_updateCunsuption":          "/javascript/updateConsumption.js",
