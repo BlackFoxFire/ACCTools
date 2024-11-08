@@ -8,10 +8,10 @@
 
 namespace Blackfox\AccTools\App\Frontend\Modules\Install;
 
-use Blackfox\Mamba\BackController;
-use Blackfox\Mamba\Enums\ConfigValue;
-use Blackfox\Mamba\HTTPRequest;
-use Blackfox\Mamba\PDOFactory;
+use Blackfox\BackController;
+use Blackfox\Enums\ConfigValue;
+use Blackfox\HTTPRequest;
+use Blackfox\PDOFactory;
 
 class InstallController extends BackController
 {

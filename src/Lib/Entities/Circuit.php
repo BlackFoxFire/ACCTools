@@ -8,7 +8,7 @@
 
  namespace Blackfox\AccTools\Lib\Entities;
 
- use Blackfox\Mamba\Entity;
+ use Blackfox\Entities\Entity;
 
  class Circuit extends Entity
  {

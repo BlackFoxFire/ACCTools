@@ -11,8 +11,8 @@
 
 namespace Blackfox\AccTools\App\Frontend;
 
-use Blackfox\Mamba\Application;
-use Blackfox\Mamba\Enums\ConfigValue;
+use Blackfox\Application;
+use Blackfox\Config\Enums\ConfigEnum;
 
 class FrontendApplication extends Application
 {
@@ -35,7 +35,7 @@ class FrontendApplication extends Application
 	// Lance l'application
 	public function run(): void
 	{
-		if($this->config->get('installed', ConfigValue::Global)) {
+		if($this->config->get('installed', ConfigEnum::Global)) {
 			$controller = $this->getController();
 		}
 		else {

@@ -8,7 +8,7 @@
 
 namespace Blackfox\AccTools\Lib\Models;
 
-use Blackfox\Mamba\Model;
+use Blackfox\Database\Model;
 use Blackfox\AccTools\Lib\Entities\Circuit;
 
 abstract class CircuitsModel extends Model

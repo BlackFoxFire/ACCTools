@@ -8,8 +8,8 @@
 
 namespace Blackfox\AccTools\App\Backend\Modules\Acc;
 
-use Blackfox\Mamba\BackController;
-use Blackfox\Mamba\HTTPRequest;
+use Blackfox\BackController;
+use Blackfox\HTTPRequest;
 use Blackfox\AccTools\Lib\Entities\Car;
 use Blackfox\AccTools\Lib\Entities\Circuit;
 use Blackfox\AccTools\Lib\Entities\Consumption;

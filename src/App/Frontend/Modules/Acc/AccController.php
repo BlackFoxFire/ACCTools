@@ -8,8 +8,8 @@
 
 namespace Blackfox\AccTools\App\Frontend\Modules\Acc;
 
-use Blackfox\Mamba\BackController;
-use Blackfox\Mamba\HTTPRequest;
+use Blackfox\BackController;
+use Blackfox\HTTPRequest;
 
 class AccController extends BackController
 {

@@ -8,7 +8,7 @@
 
 namespace Blackfox\AccTools\Lib\Models;
 
-use Blackfox\Mamba\Model;
+use Blackfox\Database\Model;
 
 abstract class CreateDBModel extends Model
 {

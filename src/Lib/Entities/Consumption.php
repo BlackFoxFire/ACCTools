@@ -8,7 +8,7 @@
 
  namespace Blackfox\AccTools\Lib\Entities;
 
- use Blackfox\Mamba\Entity;
+ use Blackfox\Entities\Entity;
  use Blackfox\DigitalChainTest\DigitalChainTest;
 
  class Consumption extends Entity

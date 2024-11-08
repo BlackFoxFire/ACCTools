@@ -8,7 +8,7 @@
 
 namespace Blackfox\AccTools\Lib\Models;
 
-use Blackfox\Mamba\Model;
+use Blackfox\Database\Model;
 use Blackfox\AccTools\Lib\Entities\Consumption;
 
 abstract class ConsumptionsModel extends Model
