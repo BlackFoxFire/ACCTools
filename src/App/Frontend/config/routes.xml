@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<routes>
-	<route url="/" controller="Acc" action="index" ></route>
-	<route url="/estimate-([0-9]+)-([0-9]+)" controller="Acc" action="estimate" vars="car,circuit" ></route>
-</routes>
