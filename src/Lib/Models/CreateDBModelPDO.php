@@ -6,7 +6,7 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
 class CreateDBModelPDO extends CreateDBModel
 {

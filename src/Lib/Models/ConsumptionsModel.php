@@ -6,10 +6,10 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
 use Blackfox\Database\Model;
-use Blackfox\AccTools\Lib\Entities\Consumption;
+use Lib\Entities\Consumption;
 
 abstract class ConsumptionsModel extends Model
 {

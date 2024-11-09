@@ -6,10 +6,10 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
 use Blackfox\Database\Model;
-use Blackfox\AccTools\Lib\Entities\Circuit;
+use Lib\Entities\Circuit;
 
 abstract class CircuitsModel extends Model
 {

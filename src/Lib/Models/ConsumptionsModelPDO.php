@@ -6,9 +6,9 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
-use Blackfox\AccTools\Lib\Entities\Consumption;
+use Lib\Entities\Consumption;
 
 class ConsumptionsModelPDO extends ConsumptionsModel
 {

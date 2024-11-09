@@ -10,11 +10,11 @@ Options Indexes FollowSymlinks
 	
 	RewriteBase /
 	
-	RewriteRule ^admin/ app.php?app=Backend [QSA,L]
+	RewriteRule ^admin/ index.php?app=Backend [QSA,L]
 	
 	RewriteCond %{REQUEST_FILENAME} -f
 	RewriteRule ^ - [L]
 	
-	RewriteRule ^(.*)$ app.php [QSA,L]
+	RewriteRule ^(.*)$ index.php [QSA,L]
 	
 </IfModule>

@@ -6,9 +6,9 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
-use Blackfox\AccTools\Lib\Entities\Circuit;
+use Lib\Entities\Circuit;
 
 class CircuitsModelPDO extends CircuitsModel
 {
@@ -34,7 +34,7 @@ class CircuitsModelPDO extends CircuitsModel
         $sql = "select * from circuits order by name";
 
         $request = $this->execute($sql);
-        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Blackfox\AccTools\Lib\Entities\Circuit');
+        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Lib\Entities\Circuit');
         $datas = $request->fetchAll();
 		$request->closeCursor();
 

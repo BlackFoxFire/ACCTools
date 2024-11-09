@@ -6,13 +6,13 @@
  * 
  */
 
-namespace Blackfox\AccTools\App\Backend\Modules\Acc;
+namespace App\Backend\Controllers\Acc;
 
 use Blackfox\BackController;
 use Blackfox\HTTPRequest;
-use Blackfox\AccTools\Lib\Entities\Car;
-use Blackfox\AccTools\Lib\Entities\Circuit;
-use Blackfox\AccTools\Lib\Entities\Consumption;
+use Lib\Entities\Car;
+use Lib\Entities\Circuit;
+use Lib\Entities\Consumption;
 
 class AccController extends BackController
 {

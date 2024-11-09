@@ -6,12 +6,12 @@
  * 
  */
 
-namespace Blackfox\AccTools\App\Frontend\Modules\Install;
+namespace App\Frontend\Controllers\Install;
 
 use Blackfox\BackController;
-use Blackfox\Enums\ConfigValue;
 use Blackfox\HTTPRequest;
-use Blackfox\PDOFactory;
+use Blackfox\Config\Enums\ConfigEnum;
+use Blackfox\Database\PDOFactory;
 
 class InstallController extends BackController
 {
@@ -52,17 +52,17 @@ class InstallController extends BackController
             }
 
             if($this->connectionTest($dbConf) && $this->adminPassTest($adminPass)) {
-                $this->app->config()->set('dbname', $dbConf['db'], ConfigValue::Database);
-                $this->app->config()->set('username', $dbConf['login'], ConfigValue::Database);
-                $this->app->config()->set('password', $dbConf['password'], ConfigValue::Database);
+                $this->app->config()->set('dbname', $dbConf['db'], ConfigEnum::Database);
+                $this->app->config()->set('username', $dbConf['login'], ConfigEnum::Database);
+                $this->app->config()->set('password', $dbConf['password'], ConfigEnum::Database);
 
                 $adminPass = password_hash($adminPass, PASSWORD_DEFAULT);
-                $this->app->config()->set('password', $adminPass, ConfigValue::Backend);
+                $this->app->config()->set('password', $adminPass, ConfigEnum::Backend);
 
                 $man = $this->managers->getManagerOf('CreateDB');
                 $man->createDB();
 
-                $this->app->config()->set('installed', true, ConfigValue::Global);
+                $this->app->config()->set('installed', true, ConfigEnum::Global);
                 $this->app->config()->write();
 
                 $this->app->httpResponse()->redirect("/");
@@ -81,7 +81,7 @@ class InstallController extends BackController
     protected function setAppConfig(): int|false
     {
         if(empty($this->app->config['global'])) {
-            $this->app->config()->set('installed', false, ConfigValue::Global);
+            $this->app->config()->set('installed', false, ConfigEnum::Global);
             return $this->app->config()->write();
         }
 
@@ -99,7 +99,7 @@ class InstallController extends BackController
     protected function connectionTest(array $dbConf): bool
     {
         try {
-            PDOFactory::mysqlConnexion($dbConf);
+            PDOFactory::getInstance($dbConf['db'], $dbConf['login'], $dbConf['password']);
             return true;
         }
         catch (\PDOException) {

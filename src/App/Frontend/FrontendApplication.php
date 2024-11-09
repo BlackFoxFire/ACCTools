@@ -5,11 +5,11 @@
 * FrontendApplication.php
 * @Auteur : Christophe Dufour
 *
-* Application orientée utilisateur.
+* Application orientée utilisateur
 *
 */
 
-namespace Blackfox\AccTools\App\Frontend;
+namespace App\Frontend;
 
 use Blackfox\Application;
 use Blackfox\Config\Enums\ConfigEnum;
@@ -17,29 +17,35 @@ use Blackfox\Config\Enums\ConfigEnum;
 class FrontendApplication extends Application
 {
 
-	/*
-		Constructeur
-		------------
-	*/
-	public function __construct(string $rootDir, string $appDir, string $appName)
+	/**
+	 * Constructeur
+	 * 
+	 * @param string $rootDir
+	 * Dossier racine de l'application
+	 */
+	public function __construct(string $rootDir)
 	{
 		$this->name = "Frontend";
-		parent::__construct($rootDir, $appDir, $appName);
+		parent::__construct($rootDir, __DIR__, __NAMESPACE__);
 	}
 
-	/*
-		Les méthodes
-		------------
-	*/
+	/**
+	 * Méthodes
+	 */
 	
-	// Lance l'application
+	/**
+	 * Lance l'application
+	 * 
+	 * @return void
+	 * Ne retourne aucune valeur
+	 */
 	public function run(): void
 	{
 		if($this->config->get('installed', ConfigEnum::Global)) {
 			$controller = $this->getController();
 		}
 		else {
-			$controller = new \Blackfox\AccTools\App\Frontend\Modules\Install\InstallController($this,'Install', 'index');
+			$controller = new \App\Frontend\Controllers\Install\InstallController($this,'Install', 'index');
 		}
 
 		$controller->execute();

@@ -6,10 +6,10 @@
  * 
  */
 
-namespace Blackfox\AccTools\Lib\Models;
+namespace Lib\Models;
 
 use Blackfox\Database\Model;
-use Blackfox\AccTools\Lib\Entities\Car;
+use Lib\Entities\Car;
 
 abstract class CarsModel extends Model
 {

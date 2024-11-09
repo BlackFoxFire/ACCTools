@@ -9,7 +9,7 @@
 *
 */
 
-namespace Blackfox\AccTools\App\Backend;
+namespace App\Backend;
 
 use Blackfox\Application;
 
@@ -20,10 +20,10 @@ class BackendApplication extends Application
 		Constructeur
 		------------
 	*/
-	public function __construct(string $rootDir, string $appDir, string $appName)
+	public function __construct(string $rootDir)
 	{
 		$this->name = "Backend";
-		parent::__construct($rootDir, $appDir, $appName);
+		parent::__construct($rootDir, __DIR__, __NAMESPACE__);
 	}
 	
 	/*
@@ -40,7 +40,7 @@ class BackendApplication extends Application
 		}
 		else
 		{
-			$controller = new \Blackfox\AccTools\App\Backend\Modules\Connection\ConnectionController($this,'Connection', 'index');
+			$controller = new \App\Backend\Controllers\Connection\ConnectionController($this,'Connection', 'index');
 		}
 
 		$controller->execute();

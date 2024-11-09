@@ -6,7 +6,7 @@
  * 
  */
 
- namespace Blackfox\AccTools\Lib\Entities;
+ namespace Lib\Entities;
 
  use Blackfox\Entities\Entity;
  use Blackfox\DigitalChainTest\DigitalChainTest;

@@ -6,7 +6,7 @@
  * 
  */
 
-namespace Blackfox\AccTools\App\Frontend\Modules\Acc;
+namespace App\Frontend\Controllers\Acc;
 
 use Blackfox\BackController;
 use Blackfox\HTTPRequest;
