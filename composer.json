@@ -10,7 +10,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Blackfox\\AccTools\\": "src/"
+            "App\\": "src/App",
+            "Lib\\": "src/Lib/"
         }
     },
     "authors": [
