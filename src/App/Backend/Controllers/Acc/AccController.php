@@ -224,4 +224,13 @@ class AccController extends BackController
         $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
     }
 
+    /**
+     * 
+     */
+    public function executeDeconnection(HTTPRequest $request): void
+    {
+        $this->app->user()->setAuthenticated(false);
+        $this->app->httpResponse()->redirect($this->app->link()->get('url_index'));
+    }
+
  }

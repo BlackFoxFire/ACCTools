@@ -13,5 +13,6 @@
     "url_js_init":                      "/javascript/init.js",
     "url_logo_acc":                     "/pictures/acc.png",
     "url_index":                        "/",
-    "url_admin":                        "/admin/"
+    "url_admin":                        "/admin/",
+    "url_deconnection":                 "/admin/deconnection"
 }

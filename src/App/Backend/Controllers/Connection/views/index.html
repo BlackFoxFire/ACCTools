@@ -1,18 +1,30 @@
 {% extends "layout.html" %} 
 
 {% block main %}
-<main>
+<main class="d-flex flex-column justify-content-center" style="height: 90vh;">
     <section>
-        <div class="row">
-            <div class="col-2 m-auto">
-                <div class="d-flex flex-column justify-content-center" style="height: 90vh;">
-                    <form action="" method="post" class="input-group">
-                        <input type="password" name="password" placeholder="Mot de passe" class="form-control" required>
-                        <button type="submit" name="loggin" class="btn btn-primary btn-outline-light">Connexion</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 m-auto">
+                    <form method="post">
+                        <div class="form-floating mt-3">
+                            <input type="text" name="username" placeholder="Utilisateur" value="{{ username }}" class="form-control" required>
+                            <label for="username">Utilisateur</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input type="password" name="password" placeholder="Mot de passe" value="{{ password }}" class="form-control" required>
+                            <label for="password">Mot de passe</label>
+                        </div>
+                        {% if badPassword %}
+                        <div class="bg-warning text-center rounded-3 mt-2 p-2">
+                            Nom de compte ou mot de passe incorrect.
+                        </div>
+                        {% endif %}
+                        <div class="text-center mt-2">
+                            <a href="{{ usr_indev }}" class="btn btn-primary" role="button">Acceuil</a>
+                            <button type="submit" name="loggin" class="btn btn-primary">Connexion</button>
+                        </div>
                     </form>
-                    {% if badPassword %}
-                    <div class="bg-warning text-center rounded-3 mt-2 p-2"> Mot de passe incorect</div>
-                    {% endif %}
                 </div>
             </div>
         </div>
