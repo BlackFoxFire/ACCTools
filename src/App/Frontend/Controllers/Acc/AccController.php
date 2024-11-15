@@ -25,6 +25,7 @@ class AccController extends BackController
         $circuits = $circuitMan->readAll();
 
         $datas = array(
+            'includeJS' => true,
             'user' => $this->app()->user(),
             'cars' => $cars,
             'circuits' => $circuits
