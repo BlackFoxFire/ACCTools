@@ -12,7 +12,7 @@
 namespace App\Frontend;
 
 use Blackfox\Application;
-use Blackfox\Config\Enums\ConfigEnum;
+use Blackfox\Config\Enums\AreaConfig;
 
 class FrontendApplication extends Application
 {
@@ -41,7 +41,7 @@ class FrontendApplication extends Application
 	 */
 	public function run(): void
 	{
-		if($this->config->get('installed', ConfigEnum::Global)) {
+		if($this->config->get('installed', AreaConfig::Global)) {
 			$controller = $this->getController();
 		}
 		else {
