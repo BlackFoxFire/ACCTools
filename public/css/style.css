@@ -6,7 +6,3 @@ body {
     font-family: Verdana, Arial, Tahoma, Helvetica, sans-serif;
     min-width: 300px;
 }
-
-main {
-    min-height: 90vh;
-}
