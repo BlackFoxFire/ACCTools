@@ -18,7 +18,12 @@ class AccController extends BackController
 {
 
     /**
-     *  
+     * Affiche la page principale d'administration
+     * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeIndex(HTTPRequest $request): void
     {
@@ -84,7 +89,12 @@ class AccController extends BackController
     }
 
     /**
+     * Ajoute une voiture
      * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeAddCar(HTTPRequest $request): void
     {
@@ -119,7 +129,12 @@ class AccController extends BackController
     }
 
     /**
+     * Ajoute un circuit
      * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeAddCircuit(HTTPRequest $request): void
     {
@@ -154,7 +169,12 @@ class AccController extends BackController
     }
 
     /**
+     * Ajoute une consommation
      * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeAddConsumption(HTTPRequest $request): void
     {
@@ -194,7 +214,12 @@ class AccController extends BackController
     }
 
     /**
+     * Ajoute des valeurs prédéfinies pour une marque de voiture
      * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeInsert()
     {
@@ -225,7 +250,12 @@ class AccController extends BackController
     }
 
     /**
+     * Permet la déconnexion de la zone d'administration
      * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     public function executeDeconnection(HTTPRequest $request): void
     {
