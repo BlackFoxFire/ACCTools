@@ -27,9 +27,9 @@ class AccController extends BackController
      */
     protected function executeIndex(HTTPRequest $request): void
     {
-        $carMan = $this->managers->getManagerOf('Cars');
-        $circuitMan = $this->managers->getManagerOf('Circuits');
-        $consoMan = $this->managers->getManagerOf('Consumptions');
+        $carMan = $this->modelFactory->create('Cars');
+        $circuitMan = $this->modelFactory->create('Circuits');
+        $consoMan = $this->modelFactory->create('Consumptions');
 
         $cars = $carMan->readAll();
         $circuits = $circuitMan->readAll();
@@ -100,7 +100,7 @@ class AccController extends BackController
     {
         if($request->formIsSubmit())
         {
-            $carMan = $this->managers->getManagerOf('Cars');
+            $carMan = $this->modelFactory->create('Cars');
             $datas['model'] = $request->getFromPost('car');
 
             if(!$carMan->searchModel($datas['model']))
@@ -140,7 +140,7 @@ class AccController extends BackController
     {
         if($request->formIsSubmit())
         {
-            $circuitMan = $this->managers->getManagerOf('Circuits');
+            $circuitMan = $this->modelFactory->create('Circuits');
             $datas['name'] = $request->getFromPost('circuit');
             
             if(!$circuitMan->searchName($datas['name']))
@@ -180,7 +180,7 @@ class AccController extends BackController
     {
         if($request->formIsSubmit())
         {
-            $consoMan = $this->managers->getManagerOf('Consumptions');
+            $consoMan = $this->modelFactory->create('Consumptions');
 
             $datas = array(
                 'id_car' => $request->getFromPost('car2') ? $request->getFromPost('car2') : 0,
@@ -223,7 +223,7 @@ class AccController extends BackController
      */
     protected function executeInsert()
     {
-        $consoMan = $this->managers->getManagerOf('Consumptions');
+        $consoMan = $this->modelFactory->create('Consumptions');
 
         $car = 5; // BMW M4 GT3
         //$car = 7; // Ferrari 296 GT3

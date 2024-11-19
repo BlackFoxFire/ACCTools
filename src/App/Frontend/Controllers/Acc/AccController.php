@@ -19,8 +19,8 @@ class AccController extends BackController
      */
     protected function executeIndex(HTTPRequest $request): void
     {
-        $carMan = $this->managers->getManagerOf('Cars');
-        $circuitMan = $this->managers->getManagerOf('Circuits');
+        $carMan = $this->modelFactory->create('Cars');
+        $circuitMan = $this->modelFactory->create('Circuits');
         $cars = $carMan->readAll();
         $circuits = $circuitMan->readAll();
 
@@ -44,7 +44,7 @@ class AccController extends BackController
             $car = $request->getFromGet("car");
             $circuit = $request->getFromGet("circuit");
 
-            $consoMan = $this->managers->getManagerOf('Consumptions');
+            $consoMan = $this->modelFactory->create('Consumptions');
             $consumption = $consoMan->search($car, $circuit);
 
             if($consumption !== false) {
