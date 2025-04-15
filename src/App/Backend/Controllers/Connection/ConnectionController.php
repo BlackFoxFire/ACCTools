@@ -37,6 +37,7 @@ class ConnectionController extends BackController
             if($username == $this->app->config()['backend']['admin'] && 
                password_verify($password, $this->app->config()['backend']['password'])) {
                 $this->app->user()->setAuthenticated(true);
+                $this->app->user()->set('security', bin2hex(random_bytes(32)));
                 $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
 
                 if($request->postKeyExists('rememberMe')) {
