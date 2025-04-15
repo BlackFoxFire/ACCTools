@@ -14,5 +14,8 @@
     "url_logo_acc":                     "/pictures/acc.png",
     "url_index":                        "/",
     "url_admin":                        "/admin/",
-    "url_deconnection":                 "/admin/deconnection"
+    "url_deconnection":                 "/admin/deconnection",
+    "url_cars":                         "/admin/cars",
+    "url_circuits":                     "/admin/circuits",
+    "url_consumptions":                 "/admin/consumptions"
 }
