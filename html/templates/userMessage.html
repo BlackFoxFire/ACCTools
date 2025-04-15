@@ -1,0 +1,11 @@
+{% if user.hasMessage %}
+<section id="userMessage">
+    {% if not user.errorMessage %}
+    <div class="alert alert-success text-center mt-3 mb-0" role="alert">
+    {% else %}
+    <div class="alert alert-danger text-center mt-3 mb-0" role="alert">
+    {% endif %}
+    {{ user.getMessage }}
+    </div>
+</section>
+{% endif %}
