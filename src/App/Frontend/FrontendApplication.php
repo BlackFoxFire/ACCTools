@@ -6,7 +6,6 @@
 * @Auteur : Christophe Dufour
 *
 * Application orientée utilisateur
-*
 */
 
 namespace App\Frontend;
@@ -28,10 +27,6 @@ class FrontendApplication extends Application
 		$this->name = "Frontend";
 		parent::__construct($rootDir, __DIR__, __NAMESPACE__);
 	}
-
-	/**
-	 * Méthodes
-	 */
 	
 	/**
 	 * Lance l'application
