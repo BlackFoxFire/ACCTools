@@ -4,6 +4,7 @@
  * InstallController.php
  * @Auteur : Christophe Dufour
  * 
+ * Gère l'installation de l'application
  */
 
 namespace App\Frontend\Controllers\Install;
@@ -20,8 +21,9 @@ class InstallController extends BackController
      * Lance le processus d'installation
      * 
      * @param HTTPRequest $request
-     * 
+     * Une requête http
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeIndex(HTTPRequest $request): void
     {
@@ -74,9 +76,9 @@ class InstallController extends BackController
 
     /**
      * Ecrit le fichier de configuration général de l'application
-     * Retourne le nombre d'octets écrits, ou false si une erreur survient.
      * 
      * @return int|false
+     * Retourne le nombre d'octets écrits, ou false si une erreur survient
      */
     protected function setAppConfig(): int|false
     {
@@ -90,11 +92,11 @@ class InstallController extends BackController
 
     /**
      * Test si la connexion avec la base de données est possible
-     * Retourne true en cas de succès, sinon false
      * 
-     * @param array $dbConf, tableau de configuration de la base de données
-     * 
+     * @param array $dbConf
+     * Tableau de configuration de la base de données
      * @return bool
+     * Retourne true en cas de succès, sinon false
      */
     protected function connectionTest(array $dbConf): bool
     {
@@ -110,11 +112,11 @@ class InstallController extends BackController
 
     /**
      * Test si le mot de passe de la zone d'administration est correct
-     * Retourne true en cas de succès, sinon false
      * 
-     * @param string $adminPass, le mot de passe à tester
-     * 
+     * @param string $adminPass
+     * Le mot de passe à tester
      * @return bool
+     * Retourne true en cas de succès, sinon false
      */
     protected function adminPassTest(string $adminPass): bool
     {

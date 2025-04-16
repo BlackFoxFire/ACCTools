@@ -4,6 +4,7 @@
  * AccController.php
  * @Auteur : Christophe Dufour
  * 
+ * Application utilisateur pour le calcul des temps de course, consommation, etc ...
  */
 
 namespace App\Frontend\Controllers\Acc;
@@ -16,6 +17,11 @@ class AccController extends BackController
 
     /**
      * Affiche la page d'index du site
+     * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeIndex(HTTPRequest $request): void
     {
@@ -36,6 +42,11 @@ class AccController extends BackController
 
     /**
      * Recherche une consommation et la retourne pour Ajax
+     * 
+     * @param HTTPRequest $request
+     * Une requête http
+     * @return void
+     * Ne retourne aucune valeur
      */
     protected function executeEstimate(HTTPRequest $request): void
     {
