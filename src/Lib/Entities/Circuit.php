@@ -4,6 +4,7 @@
  * Circuit.php
  * @Auteur : Christophe Dufour
  * 
+ * Classe modélisant un circuit
  */
 
  namespace Lib\Entities;
@@ -26,11 +27,13 @@
 
     /**
      * Getters
-     * *******
      */
 
     /**
      * Retourne la valeur de l'attribut $name
+     * 
+     * @return string
+     * Retourne le mom du circuit
      */
     public function name(): string
     {
@@ -39,11 +42,15 @@
 
     /**
      * Setters
-     * *******
      */
 
     /**
      * Modifie la valeur de l'attribut $name
+     * 
+     * @param string $name
+     * Mom du circuit
+     * @return void
+     * Ne retourne aucune valeur
      */
     public function setName(string $name): void
     {
@@ -55,11 +62,13 @@
 
     /**
      * Methodes
-     * ********
      */
 
     /**
-     * Retourne true si l'objet est valide
+     * Vérifie si un object est valide
+     * 
+     * @return bool
+     * Retourne true en cas de succès, sinon false
      */
 	public function isValid(): bool
 	{
@@ -68,6 +77,9 @@
 
     /**
      * Retourne l'objet sour forme de chaine de caratère
+     * 
+     * @return string
+     * Retourne le nom du circuit
      */
 	public function __toString(): string
 	{
