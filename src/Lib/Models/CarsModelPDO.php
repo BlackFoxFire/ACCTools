@@ -60,7 +60,7 @@ class CarsModelPDO extends CarsModel
      */
     public function readAll(): array
     {
-        $sql = "select * from cars order by model";
+        $sql = "select * from cars order by favorite desc, model asc";
 
         $request = $this->execute($sql);
         $request->setFetchMode(\PDO::FETCH_CLASS, '\Lib\Entities\Car');
