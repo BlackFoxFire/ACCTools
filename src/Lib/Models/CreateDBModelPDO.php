@@ -4,20 +4,19 @@
  * CreateDBModelPDO.php
  * @Auteur : Christophe Dufour
  * 
+ * Gère la créationn de la base de données
  */
 
 namespace Lib\Models;
 
 class CreateDBModelPDO extends CreateDBModel
 {
-    /**
-     * Methodes
-     */
 
     /**
      * Appelle les différentes functions pour créer la base de données
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     public function createDB(): void
     {
@@ -34,6 +33,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Efface les anciennes tables
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function dropTable(): void
     {
@@ -47,6 +47,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Crée la table des voitures
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function createTableCars(): void
     {
@@ -62,6 +63,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Crée la table des circuits
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function createTableCircuits(): void
     {
@@ -77,6 +79,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Crée la table des consommations
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function createTableConsumptions(): void
     {
@@ -109,6 +112,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Ajoutes des voitures
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function insertCars(): void
     {
@@ -143,6 +147,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Ajoute des circuits
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function insertCircuits(): void
     {
@@ -165,6 +170,7 @@ class CreateDBModelPDO extends CreateDBModel
      * Ajoute des consommations
      * 
      * @return void
+     * Ne retourne aucune valeur
      */
     protected function insertConsumptions(): void
     {
