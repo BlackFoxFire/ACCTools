@@ -34,6 +34,25 @@ class CircuitsModelPDO extends CircuitsModel
     }
 
     /**
+     * Modifie un enregistrement
+     * 
+     * @param Circuit $circuit
+     * Un objet de type Circuit
+     * @return int
+     * Retourne le nombre d'enregistrement écrit
+     */
+    protected function update(Circuit $circuit): int
+    {
+        $sql = " update circuits set name=? where id=?";
+
+        $request = $this->execute($sql, [$circuit, $circuit->id()]);
+        $counter = $request->rowCount();
+        $request->closeCursor();
+
+        return $counter;
+    }
+
+    /**
      * Retourne tous les enregistrements
      * 
      * @return array

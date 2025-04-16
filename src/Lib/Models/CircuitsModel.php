@@ -27,6 +27,7 @@ abstract class CircuitsModel extends Model
     {
         if($circuit->isValid())
         {
+            //return $circuit->isNew() ? $this->add($circuit) : $this->update($circuit);
             return $this->add($circuit);
         }
         else
@@ -44,6 +45,16 @@ abstract class CircuitsModel extends Model
      * Retourne le nombre d'enregistrement écrit
      */
     abstract protected function add(Circuit $circuit): int;
+
+    /**
+     * Modifie un enregistrement
+     * 
+     * @param Circuit $circuit
+     * Un objet de type Circuit
+     * @return int
+     * Retourne le nombre d'enregistrement écrit
+     */
+    abstract protected function update(Circuit $circuit): int;
 
     /**
      * Retourne tous les enregistrements
