@@ -22,5 +22,6 @@ Router::set("/admin/circuits", "Acc", "circuits");
 Router::set("/admin/deleteCircuit-([0-9a-f]{64})-([0-9]+)", "Acc", "deleteCircuit", "security,idCircuit");
 
 Router::set("/admin/consumptions", "Acc", "consumptions");
+Router::set("/admin/addConsumption", "Acc", "addConsumption");
 Router::set("/admin/insert", "Acc", "insert");
 Router::set("/admin/deconnection", "Acc", "deconnection");
