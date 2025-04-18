@@ -81,6 +81,8 @@ class ConsumptionsModelPDO extends ConsumptionsModel
         $datas = $request->fetch();
 		$request->closeCursor();
 
+        $consumption = false;
+
         if($datas) {
             $consumption = new Consumption($datas);
         }
