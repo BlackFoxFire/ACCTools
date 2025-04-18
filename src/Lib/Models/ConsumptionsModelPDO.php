@@ -116,7 +116,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readAll(): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
+        $sql  = "select consumptions.id, cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -140,7 +140,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCar(int $id_car): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
+        $sql  = "select consumptions.id, cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -167,7 +167,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCarAndCircuit(int $id_car, int $id_circuit): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
+        $sql  = "select consumptions.id, cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
@@ -192,7 +192,7 @@ class ConsumptionsModelPDO extends ConsumptionsModel
      */
     public function readByCircuit(int $id_circuit): array
     {
-        $sql  = "select cars.model, circuits.name, consumptions.value, consumptions.update_time ";
+        $sql  = "select consumptions.id, cars.model, circuits.name, consumptions.value, consumptions.update_time ";
         $sql .= "from consumptions ";
         $sql .= "join cars on cars.id = consumptions.id_car ";
         $sql .= "join circuits on circuits.id = consumptions.id_circuit ";
