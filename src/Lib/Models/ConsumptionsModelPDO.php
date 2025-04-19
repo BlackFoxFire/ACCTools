@@ -91,6 +91,27 @@ class ConsumptionsModelPDO extends ConsumptionsModel
     }
 
     /**
+     * Recherche un enregistrement en fonction d'un identifiant
+     * 
+     * @param int $id
+     * Identifiant à rechercher
+     * @return Consumption|FALSE
+     * Retourne un objet Consumption en cas de succès, sinon false
+     */
+    public function searchById(int $id): Consumption|false
+    {
+        $sql = "select * from consumptions where id=?";
+
+        $request = $this->execute($sql, [$id]);
+        $request->setFetchMode(\PDO::FETCH_CLASS, 'Lib\Entities\Consumption');
+        $datas = $request->fetch();
+        $request->closeCursor();
+
+        return $datas;
+    }
+
+
+    /**
      * Recherche tous les enregistrements sous formes brute
      * 
      * @return array
@@ -205,5 +226,24 @@ class ConsumptionsModelPDO extends ConsumptionsModel
 		$request->closeCursor();
 
         return $datas;
+    }
+
+    /**
+     * Supprime un enregistrement
+     * 
+     * @param int $id
+     * Identifiant de l'enregistrement à supprimer
+     * @return int
+     * Retourne le nombre d'enregistrement supprimé
+     */
+    public function delete(int $id): int
+    {
+        $sql = "delete from consumptions where id=?";
+
+        $request = $this->execute($sql, [$id]);
+        $counter = $request->rowCount();
+        $request->closeCursor();
+
+        return $counter;
     }
 }

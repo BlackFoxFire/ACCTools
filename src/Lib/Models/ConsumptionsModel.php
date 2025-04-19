@@ -55,6 +55,16 @@ abstract class ConsumptionsModel extends Model
     abstract protected function update(Consumption $consumption): int;
 
     /**
+     * Recherche un enregistrement en fonction d'un identifiant
+     * 
+     * @param int $id
+     * Identifiant à rechercher
+     * @return Consumption|FALSE
+     * Retourne un objet Consumption en cas de succès, sinon false
+     */
+    abstract public function searchById(int $id): Consumption|false;
+
+    /**
      * Retourne un enregistrement précis
      * 
      * @param int $id_car
@@ -113,4 +123,14 @@ abstract class ConsumptionsModel extends Model
      * Retourne un tableau associatif
      */
     abstract public function readByCircuit(int $id_circuit): array;
+
+    /**
+     * Supprime un enregistrement
+     * 
+     * @param int $id
+     * Identifiant de l'enregistrement à supprimer
+     * @return int
+     * Retourne le nombre d'enregistrement supprimé
+     */
+    abstract public function delete(int $id): int;
 }
