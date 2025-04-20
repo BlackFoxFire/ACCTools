@@ -27,8 +27,7 @@ abstract class CircuitsModel extends Model
     {
         if($circuit->isValid())
         {
-            //return $circuit->isNew() ? $this->add($circuit) : $this->update($circuit);
-            return $this->add($circuit);
+            return $circuit->isNew() ? $this->add($circuit) : $this->update($circuit);
         }
         else
         {
