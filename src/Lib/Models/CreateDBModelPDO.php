@@ -53,7 +53,8 @@ class CreateDBModelPDO extends CreateDBModel
     {
         $sql = "CREATE TABLE cars(
             id tinyint(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-            model varchar(30) UNIQUE KEY NOT NULL)";
+            model varchar(30) UNIQUE KEY NOT NULL,
+            favorite tinyint(1) NOT NULL DEFAULT 0)";
 
         $request = $this->execute($sql);
         $request->closeCursor();
