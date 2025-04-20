@@ -1,0 +1,63 @@
+{% extends "admin.html" %} 
+
+{% block action %}
+<section class="mt-3">
+    <form action="{{ url_addCircuit }}" method="post">
+        <div class="input-group p-2">
+            <i class="bi bi-sign-turn-right input-group-text"></i>
+            <div class="form-floating text-dark">
+                <input type="text" name="circuit" id="circuit" placeholder="Ajouter un circuit" class="form-control" required>
+                <label for="circuit">Ajouter un circuit</label>
+            </div>
+            <button name="addCircuit" class="btn btn-primary" type="submit">
+                <i class="bi bi-plus-circle"></i> Ajouter
+            </button>
+        </div>
+    </form>
+</section>
+
+<section class="mt-3">
+    <h5>Liste des vircuits</h5>
+    {% if circuitQuantity > 0 %}
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">
+                    <i class="bi bi-sign-turn-right"></i>
+                    <span>Circuit</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-pen"></i>
+                    <span class="d-none d-md-inline">Modifier</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-x-circle"></i>
+                    <span class="d-none d-md-inline">Supprimer</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set i = 1 %}
+            {% for circuit in circuits %}
+            <tr>
+                <th scope="row">{{ i }}</th>
+                <td>{{ circuit }}</td>
+                <td class="text-center">
+                    <a href="{{ url_editCircuit }}{{ user.security }}-{{ circuit.id }}" title="Modifier"><i class="bi bi-pen"></i></a>
+                </td>
+                <td class="text-center">
+                    <a href="{{ url_deleteCircuit }}{{ user.security }}-{{ circuit.id }}" title="Supprimer le circuit"><i class="bi bi-x-circle"></i></a>
+                </td>
+            </tr>
+            {% set i = i + 1 %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-danger text-center mt-3" role="alert">
+        Aucun circuit en base de données
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

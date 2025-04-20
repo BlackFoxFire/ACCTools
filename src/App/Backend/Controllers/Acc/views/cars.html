@@ -1,0 +1,74 @@
+{% extends "admin.html" %} 
+
+{% block action %}
+<section class="mt-3">
+    <form action="{{ url_addCar }}" method="post">
+        <div class="input-group p-2">
+            <i class="bi bi-car-front input-group-text"></i>
+            <div class="form-floating text-dark">
+                <input type="text" name="car" id="car" placeholder="Ajouter une voiture" class="form-control" required>
+                <label for="car">Ajouter une voiture</label>
+            </div>
+            <button name="addCar" class="btn btn-primary" type="submit">
+                <i class="bi bi-plus-circle"></i> Ajouter
+            </button>
+        </div>
+    </form>
+</section>
+
+<section class="mt-3">
+    <h5>Liste des voitures</h5>
+    {% if carQuantity > 0 %}
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">
+                    <i class="bi bi-car-front"></i>
+                    <span>Voiture</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-pen"></i>
+                    <span class="d-none d-md-inline">Modifier</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="d-none d-md-inline">Favoris</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-x-circle"></i>
+                    <span class="d-none d-md-inline">Supprimer</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set i = 1 %}
+            {% for car in cars %}
+            <tr>
+                <th scope="row">{{ i }}</th>
+                <td class="text-break">{{ car }}</td>
+                <td class="text-center">
+                    <a href="{{ url_editCar }}{{ user.security }}-{{ car.id }}" title="Modifier"><i class="bi bi-pen"></i></a>
+                </td>
+                <td class="text-center">
+                    {% if car.favorite %}
+                    <a href="{{ url_favoriteCar }}{{ user.security }}-{{ car.id }}" title="Retirer des favoris"><i class="bi bi-star-fill"></i></a>
+                    {% else %}
+                    <a href="{{ url_favoriteCar}}{{ user.security }}-{{ car.id }}" title="Ajouter aux favoris"><i class="bi bi-star"></i></a>
+                    {% endif %}
+                </td>
+                <td class="text-center">
+                    <a href="{{ url_deleteCar }}{{ user.security }}-{{ car.id }}" title="Supprimer la voiture"><i class="bi bi-x-circle"></i></a>
+                </td>
+            </tr>
+            {% set i = i + 1 %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-danger text-center mt-3" role="alert">
+        Aucun modèle de voiture en base de données
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

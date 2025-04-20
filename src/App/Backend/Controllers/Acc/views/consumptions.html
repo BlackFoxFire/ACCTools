@@ -1,0 +1,143 @@
+{% extends "admin.html" %} 
+
+{% block action %}
+<section class="mt-3">
+    <h5>Gerer une consommation</h5>
+    <form action="{{ url_addConsumption }}" method="post" class="mt-3">
+        <div class="row gy-3 gy-md-0">
+            <div class="col-12 col-md-4">
+                <div class="input-group">
+                    <i class="bi bi-car-front input-group-text"></i>
+                    <select name="car2" id="Car2" class="form-select" required>
+                        <option value="" selected>Voitures</option>
+                        {% for car in cars %}
+                        <option value="{{ car.id }}">{{ car }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="input-group">
+                    <i class="bi bi-sign-turn-right input-group-text"></i>
+                    <select name="circuit2" id="circuit2" class="form-select" required>
+                        <option value="" selected>Circuits</option>
+                        {% for circuit in circuits %}
+                        <option value="{{ circuit.id }}">{{ circuit }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="input-group">
+                    <i class="bi bi-fuel-pump input-group-text"></i>
+                    <input type="number" name="consumption" id="consumption"placeholder="Consommation"  min="1" max="15" step="0.1" class="form-control" required>
+                    <button name="addConsumption" class="btn btn-primary btn-outline-light" type="submit">
+                        <i class="bi bi-save"></i> Valider
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="mt-3">
+    <h5>Rechercher des consommations</h5>
+    <form action="{{ url_consumptions }}" method="post" class="mt-3">
+        <div class="row gy-3 gy-md-0">
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <i class="bi bi-car-front input-group-text"></i>
+                    <select name="carConsumption" id="carConsumption" class="form-select">
+                        <option value="0">Toutes voitures</option>
+                        {% for car in cars %}
+                        {% if car.id == id_car %}
+                        <option value="{{ car.id }}" selected>{{ car }}</option>
+                        {% else %}
+                        <option value="{{ car.id }}">{{ car }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <i class="bi bi-sign-turn-right input-group-text"></i>
+                    <select name="circuitConsumption" id="circuitConsumption" class="form-select">
+                        <option value="0">Tous les circuits</option>
+                        {% for circuit in circuits %}
+                        {% if circuit.id == id_circuit %}
+                        <option value="{{ circuit.id }}" selected>{{ circuit }}</option>
+                        {% else %}
+                        <option value="{{ circuit.id }}">{{ circuit }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <button name="viewConsumption" class="btn btn-primary btn-outline-light" type="submit">
+                        <i class="bi bi-search"></i> Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="mt-3">
+    {% if consumptions is not empty %}
+    <h5>Liste des consommations</h5>
+    <table class="table table-light table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col-md-1 col">#</th>
+                <th scope="col">
+                        <i class="bi bi-car-front"></i>
+                        <span class="d-none d-md-inline">Voiture</span>
+                </th>
+                <th scope="col">
+                    <i class="bi bi-sign-turn-right"></i>
+                    <span class="d-none d-md-inline">Circuit</span>
+                </th>
+                <th scope="col">
+                    <i class="bi bi-fuel-pump"></i>
+                    <span class="d-none d-md-inline">Consommation</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-stopwatch"></i>
+                    <span class="d-none d-md-inline">Mise à jour</span>
+                </th>
+                <th scope="col" class="text-center">
+                    <i class="bi bi-x-circle"></i>
+                    <span class="d-none d-md-inline">Supprimer</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set i = 1 %}
+            {% for consumption in consumptions %}
+            <tr>
+                <th scope="row">{{ i }}</th>
+                <td class="text-break">{{ consumption.model }}</td>
+                <td class="text-break">{{ consumption.name }}</td>
+                <td>{{ consumption.value }} L</td>
+                <td class="text-center">
+                    {% if consumption.update_time != null %}
+                    {{ consumption.update_time }}
+                    {% else %}
+                    -
+                    {% endif %}
+                </td>
+                <td class="text-center">
+                    <a href="{{ url_deleteConsumption }}{{ user.security }}-{{ consumption.id }}" title="Supprimer"><i class="bi bi-x-circle"></i></a>
+                </td>
+            </tr>
+            {% set i = i + 1 %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-danger text-center mt-3" role="alert">
+        Aucune consommation trouvée suivant ces critères
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

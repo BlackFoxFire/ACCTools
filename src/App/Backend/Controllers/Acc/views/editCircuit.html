@@ -1,0 +1,24 @@
+{% extends "admin.html" %} 
+
+{% block action %}
+    <section class="mt-3">
+        <div class="row">
+            <div class="col-12 col-md-6 m-auto">
+                <form action="{{ url_modifyCircuit }}{{ user.security }}-{{ circuit.id }}" method="post">
+                    <div class="card">
+                        <div class="card-ody">
+                            <div class="input-group">
+                                <i class="bi bi-car-front input-group-text"></i>
+                                <div class="form-floating text-dark">
+                                    <input type="text" name="circuit" id="circuit" value="{{ circuit }}" placeholder="Modifier un circuit" class="form-control" required>
+                                    <label for="circuit">Modifier un circuit</label>
+                                </div>
+                                <button name="editCircuit" class="btn btn-primary" type="submit">Enregister</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
