@@ -16,6 +16,16 @@
     "url_admin":                        "/admin/",
     "url_deconnection":                 "/admin/deconnection",
     "url_cars":                         "/admin/cars",
+    "url_addCar":                       "/admin/addCar",
+    "url_editCar":                      "/admin/editCar-",
+    "url_modifyCar":                    "/admin/modifyCar-",
+    "url_favoriteCar":                  "/admin/favoriteCar-",
+    "url_deleteCar":                    "/admin/deleteCar-",
     "url_circuits":                     "/admin/circuits",
-    "url_consumptions":                 "/admin/consumptions"
+    "url_addCircuit":                   "/admin/addCircuit",
+    "url_editCircuit":                  "/admin/editCircuit-",
+    "url_modifyCircuit":                "/admin/modifyCircuit-",
+    "url_deleteCircuit":                "/admin/deleteCircuit-",
+    "url_consumptions":                 "/admin/consumptions",
+    "url_addConsumption":               "/admin/addConsumption"
 }
