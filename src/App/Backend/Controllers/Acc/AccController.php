@@ -545,31 +545,40 @@ class AccController extends BackController
      * @return void
      * Ne retourne aucune valeur
      */
-    protected function executeInsert()
+    protected function executeInsert(HTTPRequest $request): void
     {
-        $consoMan = $this->modelFactory->create('Consumptions');
+        $cars[0]['id'] = 5;
+        $cars[0]['car'] = "BMW M4 GT3";
+        $cars[1]['id'] = 7;
+        $cars[1]['car'] = "Ferrari 296 GT3";
 
-        $car = 5; // BMW M4 GT3
-        //$car = 7; // Ferrari 296 GT3
-        $circuit = 0;
-        $values = [2.9, 2.9, 3.5, 2.5, 2.9, 3.5, 2.6, 2.9, 2.5, 2.9, 3.6, 3.8, 3.3, 14, 2.5, 3.3, 2.7, 3.3, 2.7, 4.1, 3.6, 2.6, 3.4, 2.9, 2.7];
-        //$values = [2.6, 2.6, 3.4, 2.3, 2.5, 2.9, 2.5, 2.6, 2.1, 2.4, 3.0, 3.5, 2.8, 13, 2.2, 2.9, 2.3, 2.9, 2.5, 3.6, 3.2, 2.5, 3.3, 2.5, 2.3];
+        $datas['cars'] = $cars;
 
-        foreach ($values as $value) {
-            $circuit++;
+        $values[5] = [2.9, 2.9, 3.5, 2.5, 2.9, 3.5, 2.6, 2.9, 2.5, 2.9, 3.6, 3.8, 3.3, 14, 2.5, 3.3, 2.7, 3.3, 2.7, 4.1, 3.6, 2.6, 3.4, 2.9, 2.7];
+        $values[7] = [2.6, 2.6, 3.4, 2.3, 2.5, 2.9, 2.5, 2.6, 2.1, 2.4, 3.0, 3.5, 2.8, 13, 2.2, 2.9, 2.3, 2.9, 2.5, 3.6, 3.2, 2.5, 3.3, 2.5, 2.3];
 
-            $datas = array(
-                'id_car' => $car,
-                'id_circuit' => $circuit,
-                'value' => $value
-            );
+        if($request->formIsSubmit()) {
+            $consoMan = $this->modelFactory->create('Consumptions');
+            $car = $request->getFromPost('car');
+            $circuit = 0;
 
-            $consumption = new Consumption($datas);
-            //$consoMan->save($consumption);
+            foreach ($values[$car] as $value) {
+                $circuit++;
 
+                $datas = array(
+                    'id_car' => $car,
+                    'id_circuit' => $circuit,
+                    'value' => $value
+                );
+
+                $consumption = new Consumption($datas);
+                $consoMan->save($consumption);
+            }
+
+            $this->app->httpResponse()->redirect($this->app->link()->get('url_insert'));
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
+        $this->view->setData($datas);
     }
 
     /**
