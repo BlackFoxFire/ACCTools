@@ -28,5 +28,6 @@
     "url_deleteCircuit":                "/admin/deleteCircuit-",
     "url_consumptions":                 "/admin/consumptions",
     "url_addConsumption":               "/admin/addConsumption",
+    "url_insert":                       "/admin/insert",
     "url_deleteConsumption":            "/admin/deleteConsumption-"
 }
