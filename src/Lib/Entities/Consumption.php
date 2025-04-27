@@ -75,7 +75,7 @@
      */
     public function update_time(): \DateTime|null
     {
-        return $this->update_time == null ? null : $this->update_time->format("d-m-Y à H:i");
+        return $this->update_time;
     }
 
     /**
@@ -140,12 +140,11 @@
      */
     public function setUpdate_time(string|null $update_time): void
     {
-        if ($update_time == null) {
-            $this->update_time = null;
+        if(!is_null($update_time)) {
+            $update_time = new \DateTime($update_time);
         }
-        else {
-            $this->update_time = new \DateTime($update_time);
-        }
+
+        $this->update_time = $update_time;
     }
 
     /**
@@ -161,6 +160,21 @@
 	public function isValid(): bool
 	{
 		return !$this->hasErrors() && !empty($this->id_car) && !empty($this->id_circuit) && !empty($this->value);
+    }
+
+    /**
+     * Retourne la date de mise à jour
+     * 
+     * @return string
+     * Retourne une date sous forme de chaine de caractère en cas de succès, sinon une chaine vide
+     */
+    public function update_timeAsString(): string
+    {
+        if(is_null($this->update_time)) {
+            return '';
+        }
+
+        return $this->update_time->format("d-m-y");
     }
 
     /**
