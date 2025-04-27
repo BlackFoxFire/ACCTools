@@ -89,7 +89,7 @@ class CreateDBModelPDO extends CreateDBModel
             id_car tinyint(2) UNSIGNED NOT NULL,
             id_circuit tinyint(2) UNSIGNED NOT NULL,
             value decimal(4,2) UNSIGNED NOT NULL),
-            update_time datetime DEFAULT NULL";
+            update_time date DEFAULT NULL";
 
         $request = $this->execute($sql);
         $request->closeCursor();
