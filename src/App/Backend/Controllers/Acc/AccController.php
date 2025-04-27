@@ -10,9 +10,6 @@ namespace App\Backend\Controllers\Acc;
 
 use Blackfox\BackController;
 use Blackfox\HTTPRequest;
-use Lib\Entities\Car;
-use Lib\Entities\Circuit;
-use Lib\Entities\Consumption;
 
 class AccController extends BackController
 {
@@ -51,7 +48,7 @@ class AccController extends BackController
             $datas['model'] = $request->getFromPost('car');
 
             if (!$carMan->searchModel($datas['model'])) {
-                $car = new Car($datas);
+                $car = $this->entityFactory->create("Car", $datas);
 
                 if ($car->isValid()) {
                     if (!$carMan->save($car)) {
@@ -259,7 +256,7 @@ class AccController extends BackController
             $datas['name'] = $request->getFromPost('circuit');
 
             if (!$circuitMan->searchName($datas['name'])) {
-                $circuit = new Circuit($datas);
+                $circuit = $this->entityFactory->create("Circuit", $datas);
 
                 if ($circuit->isValid()) {
                     if (!$circuitMan->save($circuit)) {
@@ -487,7 +484,7 @@ class AccController extends BackController
                 $consumption->setValue($datas['value']);
             }
             else {
-                $consumption = new Consumption($datas);
+                $consumption = $this->entityFactory->create("Consumption", $datas);
             }
 
             if ($consumption->isValid()) {
@@ -571,7 +568,7 @@ class AccController extends BackController
                     'value' => $value
                 );
 
-                $consumption = new Consumption($datas);
+                $consumption = $this->entityFactory->create("Consumption", $datas);
                 $consoMan->save($consumption);
             }
 
