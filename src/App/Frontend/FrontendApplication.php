@@ -11,23 +11,10 @@
 namespace App\Frontend;
 
 use Blackfox\Application;
-use Blackfox\Config\Enums\AreaConfig;
+use Blackfox\Config\Config;
 
 class FrontendApplication extends Application
 {
-
-	/**
-	 * Constructeur
-	 * 
-	 * @param string $rootDir
-	 * Dossier racine de l'application
-	 */
-	public function __construct(string $rootDir)
-	{
-		$this->name = "Frontend";
-		parent::__construct($rootDir, __DIR__, __NAMESPACE__);
-	}
-	
 	/**
 	 * Lance l'application
 	 * 
@@ -36,7 +23,7 @@ class FrontendApplication extends Application
 	 */
 	public function run(): void
 	{
-		if($this->config->get('installed', AreaConfig::Global)) {
+		if(Config::global('installed')) {
 			$controller = $this->getController();
 		}
 		else {

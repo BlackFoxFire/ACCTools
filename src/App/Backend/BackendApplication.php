@@ -14,19 +14,6 @@ use Blackfox\Application;
 
 class BackendApplication extends Application
 {
-
-	/**
-	 * Constructeur
-	 * 
-	 * @param string $rootDir
-	 * Dossier racine de l'application
-	 */
-	public function __construct(string $rootDir)
-	{
-		$this->name = "Backend";
-		parent::__construct($rootDir, __DIR__, __NAMESPACE__);
-	}
-	
 	/**
 	 * Lance l'application
 	 * 
@@ -47,4 +34,5 @@ class BackendApplication extends Application
 		$this->httpResponse->setView($controller->view());
 		$this->httpResponse->render();
 	}
+	
 }

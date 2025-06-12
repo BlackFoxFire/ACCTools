@@ -10,6 +10,7 @@ namespace App\Backend\Controllers\Acc;
 
 use Blackfox\BackController;
 use Blackfox\HTTPRequest;
+use Blackfox\Config\Link;
 
 class AccController extends BackController
 {
@@ -66,7 +67,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+        $this->app->httpResponse()->redirect(Link::get('url_cars'));
     }
 
     /**
@@ -84,14 +85,14 @@ class AccController extends BackController
 
         if(strcmp($security, $this->app->user()->get('security')) != 0) {
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+            $this->app->httpResponse()->redirect(Link::get('url_cars'));
         }
 
         $carMan = $this->modelFactory->create('Cars');
 
         if(!$datas['car'] = $carMan->searchById($idCar)) {
             $this->app->user()->setMessage("Erreur: Voiture introuvable en base de données.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+            $this->app->httpResponse()->redirect(Link::get('url_cars'));
         }
 
         $this->view->setData($datas);
@@ -112,7 +113,7 @@ class AccController extends BackController
 
         if(strcmp($security, $this->app->user()->get('security')) != 0) {
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+            $this->app->httpResponse()->redirect(Link::get('url_cars'));
         }
 
         if ($request->formIsSubmit()) {
@@ -121,7 +122,7 @@ class AccController extends BackController
             
             if ($carMan->searchModel($datas['model'])) {
                 $this->app()->user()->setMessage("Modèle déjà présent dans la base de données.", true);
-                $this->app->httpResponse()->redirect($this->app->link()->get('url_editCar') . $security . "-" . $idCar);
+                $this->app->httpResponse()->redirect(Link::get('url_editCar') . $security . "-" . $idCar);
             }
 
             if($car = $carMan->searchById($idCar)) {
@@ -143,7 +144,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+        $this->app->httpResponse()->redirect(Link::get('url_cars'));
     }
 
     /**
@@ -184,7 +185,7 @@ class AccController extends BackController
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+        $this->app->httpResponse()->redirect(Link::get('url_cars'));
     }
 
     /**
@@ -218,7 +219,7 @@ class AccController extends BackController
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_cars'));
+        $this->app->httpResponse()->redirect(Link::get('url_cars'));
     }
 
     /**
@@ -274,7 +275,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_circuits'));
+        $this->app->httpResponse()->redirect(Link::get('url_circuits'));
     }
 
     /**
@@ -292,14 +293,14 @@ class AccController extends BackController
 
         if(strcmp($security, $this->app->user()->get('security')) != 0) {
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_circuit'));
+            $this->app->httpResponse()->redirect(Link::get('url_circuit'));
         }
 
         $circuitMan = $this->modelFactory->create('Circuits');
 
         if(!$datas['circuit'] = $circuitMan->searchById($idCircuit)) {
             $this->app->user()->setMessage("Erreur: Circuit introuvable en base de données.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_circuit'));
+            $this->app->httpResponse()->redirect(Link::get('url_circuit'));
         }
 
         $this->view->setData($datas);
@@ -320,7 +321,7 @@ class AccController extends BackController
 
         if(strcmp($security, $this->app->user()->get('security')) != 0) {
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_circuit'));
+            $this->app->httpResponse()->redirect(Link::get('url_circuit'));
         }
 
         if ($request->formIsSubmit()) {
@@ -329,7 +330,7 @@ class AccController extends BackController
 
             if ($circuitMan->searchName($datas['name'])) {
                 $this->app()->user()->setMessage("Circuit déjà présent dans la base de données.", true);
-                $this->app->httpResponse()->redirect($this->app->link()->get('url_editCircuit') . $security . "-" . $idCircuit);
+                $this->app->httpResponse()->redirect(Link::get('url_editCircuit') . $security . "-" . $idCircuit);
             }
             
             if($circuit = $circuitMan->searchById($idCircuit)) {
@@ -351,7 +352,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_circuits'));
+        $this->app->httpResponse()->redirect(Link::get('url_circuits'));
     }
 
     /**
@@ -385,7 +386,7 @@ class AccController extends BackController
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_circuits'));
+        $this->app->httpResponse()->redirect(Link::get('url_circuits'));
     }
 
     /**
@@ -497,7 +498,7 @@ class AccController extends BackController
             }
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
+        $this->app->httpResponse()->redirect(Link::get('url_admin'));
     }
 
     /**
@@ -531,7 +532,7 @@ class AccController extends BackController
             $this->app->user()->setMessage("Erreur: Jeton de sécurité invalide.", true);
         }
 
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_admin'));
+        $this->app->httpResponse()->redirect(Link::get('url_admin'));
     }
 
     /**
@@ -572,7 +573,7 @@ class AccController extends BackController
                 $consoMan->save($consumption);
             }
 
-            $this->app->httpResponse()->redirect($this->app->link()->get('url_insert'));
+            $this->app->httpResponse()->redirect(Link::get('url_insert'));
         }
 
         $this->view->setData($datas);
@@ -589,7 +590,7 @@ class AccController extends BackController
     public function executeDeconnection(HTTPRequest $request): void
     {
         $this->app->user()->setAuthenticated(false);
-        $this->app->httpResponse()->redirect($this->app->link()->get('url_index'));
+        $this->app->httpResponse()->redirect(Link::get('url_index'));
     }
 
 }
