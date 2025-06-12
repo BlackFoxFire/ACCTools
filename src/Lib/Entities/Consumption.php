@@ -14,31 +14,23 @@
 
  class Consumption extends Entity
  {
-
-    /**
-     * Constante
-     */
     const BAD_IDCAR     = 1;
     const BAD_IDCIRCUIT = 2;
     const BAD_VALUE     = 3;
     
-    /**
-     * Attributs
-     */
-    protected int $id_car;                  // Id d'une voiture
-    protected int $id_circuit;              // id d'un circuit
-    protected float $value;                 // Valeur de la consommation
-    protected \DateTime|null $update_time;  // Date de la dernière mise à jour
+    // Id d'une voiture
+    protected int $id_car;
+    // id d'un circuit
+    protected int $id_circuit;
+    // Valeur de la consommation
+    protected float $value;
+    // Date de la dernière mise à jour
+    protected \DateTime|null $update_time;
 
     /**
-     * Getters
-     */
-
-    /**
-     * Retourne la valeur de l'attribut $id_car
+     * Retourne la valeur de id_car
      * 
      * @return int
-     * Retourne l'identifiant de la voiture
      */
     public function id_car(): int
     {
@@ -46,10 +38,9 @@
     }
 
     /**
-     * Retourne la valeur de l'attribut $id_circuit
+     * Retourne la valeur de id_circuit
      * 
      * @return int
-     * Retourne l'identifiant du circuit
      */
     public function id_circuit(): int
     {
@@ -57,10 +48,9 @@
     }
 
     /**
-     * Retourne la valeur de l'attribut $value
+     * Retourne la valeur de value
      * 
      * @return float
-     * Retourne la valeur de la consommation
      */
     public function value(): float
     {
@@ -68,10 +58,9 @@
     }
 
     /**
-     * Retourne la valeur de l'attribut $update_time
+     * Retourne la valeur de update_time
      * 
      * @return DateTime|null
-     * Retourne un format DateTime si la consommation a été mise à jour, sinon null
      */
     public function update_time(): \DateTime|null
     {
@@ -79,16 +68,11 @@
     }
 
     /**
-     * Setters
-     */
-
-    /**
-     * Modifie la valeur de l'attribut $id_car
+     * Modifie la valeur de id_car
      * 
      * @param int $id_car
-     * Identifiant de la voiture
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function setId_car(int $id_car): void
     {
@@ -99,12 +83,11 @@
     }
 
     /**
-     * Modifie la valeur de l'attribut $id_circuit
+     * Modifie la valeur de id_circuit
      * 
      * @param int $id_circuit
-     * Identifiant du circuit
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function setId_circuit(int $id_circuit): void
     {
@@ -115,12 +98,11 @@
     }
 
     /**
-     * Modifie la valeur de l'attribut $value
+     * Modifie la valeur de value
      * 
      * @param int|float $value
-     * Valeur de la consommation
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function setValue(int|float $value): void
     {
@@ -131,12 +113,11 @@
     }
 
     /**
-     * Retourne la valeur de l'attribut $update_time
+     * Retourne la valeur de $update_time
      * 
      * @param string|null $update_time
-     * Date de la mise à jour
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function setUpdate_time(string|null $update_time): void
     {
@@ -146,10 +127,6 @@
 
         $this->update_time = $update_time;
     }
-
-    /**
-     * Methodes
-     */
 
     /**
      * Vérifie si un object est valide
@@ -181,7 +158,6 @@
      * Retourne l'objet sour forme de chaine de caratère
      * 
      * @return string
-     * Retourne la valeur de la consommation
      */
 	public function __toString(): string
 	{

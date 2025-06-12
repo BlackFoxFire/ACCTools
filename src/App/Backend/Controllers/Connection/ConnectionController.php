@@ -15,14 +15,12 @@ use Blackfox\Config\Link;
 
 class ConnectionController extends BackController
 {
-
     /**
      * Permet de se connecter à la zone d'administration
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function executeIndex(HTTPRequest $request): void
     {

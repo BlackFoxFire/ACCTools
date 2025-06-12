@@ -14,14 +14,12 @@ use Lib\Entities\Circuit;
 
 abstract class CircuitsModel extends Model
 {
-
     /**
      * Oriente vers l'ajout ou la mise à jour d'un enregistrement
      * 
      * @param Circuit $circuit
-     * Un objet de type Circuit
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement ecrit
      */
     public function save(Circuit $circuit): int
     {
@@ -39,9 +37,8 @@ abstract class CircuitsModel extends Model
      * Ajoute un enregistrement
      * 
      * @param Circuit $circuit
-     * Un objet de type Circuit
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     abstract protected function add(Circuit $circuit): int;
 
@@ -49,9 +46,8 @@ abstract class CircuitsModel extends Model
      * Modifie un enregistrement
      * 
      * @param Circuit $circuit
-     * Un objet de type Circuit
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     abstract protected function update(Circuit $circuit): int;
 
@@ -59,7 +55,6 @@ abstract class CircuitsModel extends Model
      * Retourne tous les enregistrements
      * 
      * @return array
-     * Retourne un tableau d'objet Circuit
      */
     abstract public function readAll(): array;
 
@@ -67,9 +62,8 @@ abstract class CircuitsModel extends Model
      * Recherche un enregistrement en fonction d'un identifiant
      * 
      * @param int $id
-     * Identifiant à rechercher
+     * 
      * @return Circuit|false
-     * Retourne un objet Circuit en cas de succès, sinon false
      */
     abstract public function searchById(int $id): Circuit|false;
 
@@ -77,9 +71,8 @@ abstract class CircuitsModel extends Model
      * Recherche un circuit par son nom
      * 
      * @param string $name
-     * La chaine à rechercher
+     * 
      * @return bool
-     * Retourne true en cas de succès, sinon false
      */
     abstract public function searchName(string $name): bool;
 
@@ -87,9 +80,8 @@ abstract class CircuitsModel extends Model
      * Supprime un enregistrement
      * 
      * @param int $id
-     * Identifiant de l'enregistrement à supprimer
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement supprimé
      */
     abstract public function delete(int $id): int;
 

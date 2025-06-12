@@ -13,27 +13,15 @@
 
  class Circuit extends Entity
  {
-    /**
-     * Constante
-     */
     const BAD_CIRCUIT = 1;
-    
-    /**
-     * Attributs
-     */
 
     // Nom d'un circuit
     protected string $name;
 
     /**
-     * Getters
-     */
-
-    /**
-     * Retourne la valeur de l'attribut $name
+     * Retourne la valeur de name
      * 
      * @return string
-     * Retourne le mom du circuit
      */
     public function name(): string
     {
@@ -41,16 +29,11 @@
     }
 
     /**
-     * Setters
-     */
-
-    /**
-     * Modifie la valeur de l'attribut $name
+     * Modifie la valeur de name
      * 
      * @param string $name
-     * Mom du circuit
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function setName(string $name): void
     {
@@ -59,10 +42,6 @@
             $this->name = $name;
         }
     }
-
-    /**
-     * Methodes
-     */
 
     /**
      * Vérifie si un object est valide
@@ -79,7 +58,6 @@
      * Retourne l'objet sour forme de chaine de caratère
      * 
      * @return string
-     * Retourne le nom du circuit
      */
 	public function __toString(): string
 	{

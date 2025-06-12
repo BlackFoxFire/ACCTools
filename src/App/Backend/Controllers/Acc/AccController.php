@@ -18,9 +18,8 @@ class AccController extends BackController
      * Gestion des voitures
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeCars(HTTPRequest $request): void
     {
@@ -38,9 +37,8 @@ class AccController extends BackController
      * Ajoute une voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeAddCar(HTTPRequest $request): void
     {
@@ -74,9 +72,8 @@ class AccController extends BackController
      * Edite une voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeEditCar(HTTPRequest $request): void
     {
@@ -102,9 +99,8 @@ class AccController extends BackController
      * Modifie une voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeModifyCar(HTTPRequest $request): void
     {
@@ -151,9 +147,8 @@ class AccController extends BackController
      * Modifie le statut favoris d'une voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeFavoriteCar(HTTPRequest $request): void
     {
@@ -192,9 +187,8 @@ class AccController extends BackController
      * Supprime une voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeDeleteCar(HTTPRequest $request): void
     {
@@ -226,9 +220,8 @@ class AccController extends BackController
      * Gestion des circuits
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeCircuits(HTTPRequest $request): void
     {
@@ -246,9 +239,8 @@ class AccController extends BackController
      * Ajoute un circuit
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeAddCircuit(HTTPRequest $request): void
     {
@@ -282,9 +274,8 @@ class AccController extends BackController
      * Edite un circuit
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeEditCircuit(HTTPRequest $request): void
     {
@@ -310,9 +301,8 @@ class AccController extends BackController
      * Modifie un circuit
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeModifyCircuit(HTTPRequest $request): void
     {
@@ -359,9 +349,8 @@ class AccController extends BackController
      * Supprime un circuit
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeDeleteCircuit(HTTPRequest $request): void
     {
@@ -393,9 +382,8 @@ class AccController extends BackController
      * Gestion des consommations
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeConsumptions(HTTPRequest $request): void
     {
@@ -466,9 +454,8 @@ class AccController extends BackController
      * Ajoute une consommation
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeAddConsumption(HTTPRequest $request): void
     {
@@ -505,9 +492,8 @@ class AccController extends BackController
      * Supprime une consommation
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeDeleteConsumption(HTTPRequest $request): void
     {
@@ -539,9 +525,8 @@ class AccController extends BackController
      * Ajoute des valeurs prédéfinies pour une marque de voiture
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeInsert(HTTPRequest $request): void
     {
@@ -583,9 +568,8 @@ class AccController extends BackController
      * Permet la déconnexion de la zone d'administration
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     public function executeDeconnection(HTTPRequest $request): void
     {

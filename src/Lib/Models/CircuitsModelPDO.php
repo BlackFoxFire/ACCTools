@@ -13,14 +13,12 @@ use Lib\Entities\Circuit;
 
 class CircuitsModelPDO extends CircuitsModel
 {
-
     /**
      * Ajoute un enregistrement
      * 
      * @param Circuit $circuit
-     * Un objet de type Circuit
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     protected function add(Circuit $circuit): int
     {
@@ -37,9 +35,8 @@ class CircuitsModelPDO extends CircuitsModel
      * Modifie un enregistrement
      * 
      * @param Circuit $circuit
-     * Un objet de type Circuit
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     protected function update(Circuit $circuit): int
     {
@@ -56,7 +53,6 @@ class CircuitsModelPDO extends CircuitsModel
      * Retourne tous les enregistrements
      * 
      * @return array
-     * Retourne un tableau d'objet Circuit
      */
     public function readAll(): array
     {
@@ -74,9 +70,8 @@ class CircuitsModelPDO extends CircuitsModel
      * Recherche un enregistrement en fonction d'un identifiant
      * 
      * @param int $id
-     * Identifiant à rechercher
+     * 
      * @return Circuit|false
-     * Retourne un objet Circuit en cas de succès, sinon false
      */
     public function searchById(int $id): Circuit|false
     {
@@ -94,9 +89,8 @@ class CircuitsModelPDO extends CircuitsModel
      * Recherche un circuit par son nom
      * 
      * @param string $name
-     * La chaine à rechercher
+     * 
      * @return bool
-     * Retourne true en cas de succès, sinon false
      */
     public function searchName(string $name): bool
     {
@@ -113,9 +107,8 @@ class CircuitsModelPDO extends CircuitsModel
      * Supprime un enregistrement
      * 
      * @param int $id
-     * Identifiant de l'enregistrement à supprimer
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement supprimé
      */
     public function delete(int $id): int
     {

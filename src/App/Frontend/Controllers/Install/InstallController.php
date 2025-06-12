@@ -16,14 +16,12 @@ use Blackfox\Database\PDOFactory;
 
 class InstallController extends BackController
 {
-
     /**
      * Lance le processus d'installation
      * 
      * @param HTTPRequest $request
-     * Une requête http
+     * 
      * @return void
-     * Ne retourne aucune valeur
      */
     protected function executeIndex(HTTPRequest $request): void
     {

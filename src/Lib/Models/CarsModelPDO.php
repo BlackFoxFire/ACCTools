@@ -13,14 +13,12 @@ use Lib\Entities\Car;
 
 class CarsModelPDO extends CarsModel
 {
-
     /**
      * Ajoute un enregistrement
      * 
      * @param Car $car
-     * Un objet de type Car
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     protected function add(Car $car): int
     {
@@ -37,9 +35,8 @@ class CarsModelPDO extends CarsModel
      * Modifie un enregistrement
      * 
      * @param Car $car
-     * Un objet de type Car
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     protected function update(Car $car): int
     {
@@ -56,7 +53,6 @@ class CarsModelPDO extends CarsModel
      * Retourne tous les enregistrements
      * 
      * @return array
-     * Retourne un tableau d'objet Car
      */
     public function readAll(): array
     {
@@ -74,9 +70,8 @@ class CarsModelPDO extends CarsModel
      * Recherche un enregistrement en fonction d'un identifiant
      * 
      * @param int $id
-     * Identifiant à rechercher
+     * 
      * @return Car|false
-     * Retourne un objet Car en cas de succès, sinon false
      */
     public function searchById(int $id): Car|false
     {
@@ -94,9 +89,8 @@ class CarsModelPDO extends CarsModel
      * Recherche un modèle de voiture
      * 
      * @param string $model
-     * La chaine à rechercher
+     * 
      * @return bool
-     * Retourne true en cas de succès, sinon false
      */
     public function searchModel(string $model): bool
     {
@@ -113,9 +107,8 @@ class CarsModelPDO extends CarsModel
      * Supprime un enregistrement
      * 
      * @param int $id
-     * Identifiant de l'enregistrement à supprimer
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement supprimé
      */
     public function delete(int $id): int
     {

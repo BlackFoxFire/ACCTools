@@ -19,7 +19,6 @@ class FrontendApplication extends Application
 	 * Lance l'application
 	 * 
 	 * @return void
-	 * Ne retourne aucune valeur
 	 */
 	public function run(): void
 	{

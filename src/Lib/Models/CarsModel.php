@@ -14,14 +14,12 @@ use Lib\Entities\Car;
 
 abstract class CarsModel extends Model
 {
-
     /**
      * Oriente vers l'ajout ou la mise à jour d'un enregistrement
      * 
      * @param Car $car
-     * Un objet de type Car
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement ecrit
      */
     public function save(Car $car): int
     {
@@ -36,9 +34,8 @@ abstract class CarsModel extends Model
      * Ajoute un enregistrement
      * 
      * @param Car $car
-     * Un objet de type Car
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     abstract protected function add(Car $car): int;
 
@@ -46,9 +43,8 @@ abstract class CarsModel extends Model
      * Modifie un enregistrement
      * 
      * @param Car $car
-     * Un bojetc de type Car
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement écrit
      */
     abstract protected function update(Car $car): int;
 
@@ -56,7 +52,6 @@ abstract class CarsModel extends Model
      * Retourne tous les enregistrements
      * 
      * @return array
-     * Retourne un tableau d'objet Car
      */
     abstract public function readAll(): array;
 
@@ -64,9 +59,8 @@ abstract class CarsModel extends Model
      * Recherche un enregistrement en fonction d'un identifiant
      * 
      * @param int $id
-     * Identifiant à rechercher
+     * 
      * @return Car|false
-     * Retourne un objet Car en cas de succès, sinon false
      */
     abstract public function searchById(int $id): Car|false;
 
@@ -74,9 +68,8 @@ abstract class CarsModel extends Model
      * Recherche un modèle de voiture
      * 
      * @param string $model
-     * La chaine à rechercher
+     * 
      * @return bool
-     * Retourne true en cas de succès, sinon false
      */
     abstract public function searchModel(string $model): bool;
 
@@ -84,9 +77,8 @@ abstract class CarsModel extends Model
      * Supprime un enregistrement
      * 
      * @param int $id
-     * Identifiant de l'enregistrement à supprimer
+     * 
      * @return int
-     * Retourne le nombre d'enregistrement supprimé
      */
     abstract public function delete(int $id): int;
 
